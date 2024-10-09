@@ -15,6 +15,21 @@ jobs:
         with:
           deno-version: v1.x
 
+      - name: 📦 Get the Latest Version
+        id: opml-generator
+        run: |
+          version="$(curl https://api.jsr.io/scopes/5ouma/packages/opml-generator | jq -r '.latestVersion')"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: 🫙 Cache Deno Dependencies
+        uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4.1.1
+        with:
+          path: |
+            ~/.deno
+            ~/.cache/deno
+          key: ${{ runner.os }}-opml-generator-${{ steps.opml-generator.outputs.version }}
+          restore-keys: ${{ runner.os }}-opml-generator-
+
       - name: ⬇️ Download the TOML and OPML Repository
         run: |
           git clone "https://gist.github.com/${{ secrets.TOML_GIST_ID }}.git" feeds
