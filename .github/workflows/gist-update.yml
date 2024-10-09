@@ -15,15 +15,15 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: ⬇️ Download the TOML and OPML repository
+      - name: ⬇️ Download the TOML and OPML Repository
         run: |
           git clone "https://gist.github.com/${{ secrets.TOML_GIST_ID }}.git" feeds
           git clone "https://gist.github.com/${{ secrets.OPML_GIST_ID }}.git" outputs
 
-      - name: 🧰 Generate OPML file
+      - name: 🧰 Generate OPML File
         run: deno run -A jsr:@5ouma/opml-generator --feeds=./feeds/feeds.toml --outputs=./outputs
 
-      - name: ⬆️ Upload OPML file
+      - name: ⬆️ Upload OPML File
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
         run: |
