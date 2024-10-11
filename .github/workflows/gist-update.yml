@@ -11,9 +11,7 @@ jobs:
 
     steps:
       - name: 🦕 Setup Deno
-        uses: denoland/setup-deno@5e01c016a857a4dbb5afe9d0f9733cd472cba985 # 1.5.1
-        with:
-          deno-version: v1.x
+        uses: denoland/setup-deno@4606d5cc6fb3f673efd4f594850e3f4b3e9d29cd # 2.0.0
 
       - name: 📦 Get the Latest Version
         id: opml-generator
