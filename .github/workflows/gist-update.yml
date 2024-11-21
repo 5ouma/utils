@@ -16,7 +16,7 @@ jobs:
       - name: 📦 Get the Latest Version
         id: opml-generator
         run: |
-          version="$(curl https://api.jsr.io/scopes/5ouma/packages/opml-generator | jq -r '.latestVersion')"
+          version="$(curl https://jsr.io/@5ouma/opml-generator/meta.json | jq -r '.latest')"
           echo "version=$version" >> "$GITHUB_OUTPUT"
 
       - name: 🫙 Cache Deno Dependencies
