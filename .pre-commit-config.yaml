@@ -40,6 +40,7 @@ repos:
     hooks:
       - id: renovate-config-validator
         files: (^|/).?(renovate(?:rc)?|default)(?:\.json5?)?$
+        args: ["--strict"]
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.42.0
