@@ -2,14 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:best-practices"],
   "dependencyDashboard": false,
+  "minimumReleaseAge": "1 day",
   "pre-commit": { "enabled": true },
   "reviewers": ["5ouma"],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "matchCurrentVersion": "!/^0/",
-      "automerge": true,
-      "minimumReleaseAge": "2 days"
+      "automerge": true
     }
   ]
 }
