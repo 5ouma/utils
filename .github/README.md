@@ -27,6 +27,16 @@ jobs:
       - uses: 5ouma/utils/setup-bun-with-cache@main
 ```
 
+### 🦕 Setup Deno with Cache
+
+```yml
+jobs:
+  build:
+    runs-on: Ubuntu-Latest
+    steps:
+      - uses: 5ouma/utils/setup-deno-with-cache@main
+```
+
 <br />
 
 ## 🎨 Renovate
