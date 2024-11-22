@@ -15,6 +15,20 @@
 
 <br /><br />
 
+## 🐙 GitHub Composite Actions
+
+### 🍞 Setup Bun with Cache
+
+```yml
+jobs:
+  build:
+    runs-on: Ubuntu-Latest
+    steps:
+      - uses: 5ouma/utils/setup-bun-with-cache@main
+```
+
+<br />
+
 ## 🎨 Renovate
 
 ```json
