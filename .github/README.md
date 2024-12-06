@@ -9,7 +9,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/5ouma/utils?style=flat-square)](https://github.com/5ouma/utils/commit/HEAD)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/5ouma/utils?style=flat-square)](https://github.com/5ouma/utils/commits/main)
 <br />
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/5ouma/utils/main.svg?style=flat-square)](https://results.pre-commit.ci/latest/github/5ouma/utils/main)
+[![pre-commit](https://img.shields.io/github/actions/workflow/status/5ouma/utils/pre-commit.yml?label=pre-commit&style=flat-square)](https://github.com/5ouma/utils/actions/workflows/pre-commit.yml)
 
 </div>
 
