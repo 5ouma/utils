@@ -1,0 +1,29 @@
+name: 🚸 pre-commit
+description: Check the code with pre-commit hooks
+
+inputs:
+  config:
+    description: The path to the pre-commit configuration file
+    required: false
+    default: .github/pre-commit.yml
+
+runs:
+  using: composite
+
+  steps:
+    - name: 🚚 Checkout Repository
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+
+    - name: 🚸 Run pre-commit
+      uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
+      with:
+        extra_args: -ac '${{ inputs.config }}'
+
+    - name: 🚸 Run pre-commit-ci-lite
+      if: ${{ always() }}
+      uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
+      with:
+        msg: "chore(fix): Auto fixes by pre-commit hooks"

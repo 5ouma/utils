@@ -17,6 +17,19 @@
 
 ## 🐙 GitHub Composite Actions
 
+### 🚸 pre-commit
+
+```yml
+jobs:
+  build:
+    runs-on: Ubuntu-Latest
+    steps:
+      - uses: 5ouma/utils/pre-commit@main
+        with:
+          config: path/to/config
+          # default is .github/pre-commit.yml
+```
+
 ### 🍞 Setup Bun with Cache
 
 ```yml
