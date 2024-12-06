@@ -3,7 +3,7 @@
   "extends": ["config:best-practices"],
   "dependencyDashboard": false,
   "minimumReleaseAge": "1 day",
-  "pre-commit": { "enabled": true },
+  "pre-commit": { "enabled": true, "fileMatch": ["pre-commit.yml"] },
   "reviewers": ["5ouma"],
   "packageRules": [
     {
