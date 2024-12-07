@@ -17,10 +17,20 @@ runs:
     - name: 🐍 Setup Python
       uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
 
-    - name: 🚸 Run pre-commit
-      uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
+    - name: 🚸 Install pre-commit
+      run: pip install pre-commit
+      shell: bash
+
+    - name: 🫙 Cache pre-commit Dependencies
+      uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
       with:
-        extra_args: -ac '${{ inputs.config }}'
+        path: ~/.cache/pre-commit
+        key: ${{ runner.os }}-pre-commit-${{ hashFiles(inputs.config) }}
+        restore-keys: ${{ runner.os }}-pre-commit-
+
+    - name: 🚸 Run pre-commit
+      run: pre-commit run -ac '${{ inputs.config }}'
+      shell: bash
 
     - name: 🚸 Run pre-commit-ci-lite
       if: ${{ always() }}
