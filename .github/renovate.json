@@ -1,4 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>5ouma/utils"]
+  "extends": ["github>5ouma/utils"],
+  "pre-commit": { "enabled": true }
 }

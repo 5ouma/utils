@@ -1,12 +1,6 @@
 name: 🚸 pre-commit
 description: Check the code with pre-commit hooks
 
-inputs:
-  config:
-    description: The path to the pre-commit configuration file
-    required: false
-    default: .github/pre-commit.yml
-
 runs:
   using: composite
 
@@ -21,15 +15,20 @@ runs:
       run: pip install pre-commit
       shell: bash
 
+    - name: "#️⃣ Download pre-commit hooks"
+      if: ${{ hashFiles('./.pre-commit-config.yaml') == '' }}
+      run: curl -O "https://raw.githubusercontent.com/5ouma/utils/refs/heads/main/.pre-commit-config.yaml"
+      shell: bash
+
     - name: 🫙 Cache pre-commit Dependencies
       uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
       with:
         path: ~/.cache/pre-commit
-        key: ${{ runner.os }}-pre-commit-${{ hashFiles(inputs.config) }}
+        key: ${{ runner.os }}-pre-commit-${{ hashFiles('./.pre-commit-config.yaml') }}
         restore-keys: ${{ runner.os }}-pre-commit-
 
     - name: 🚸 Run pre-commit
-      run: pre-commit run -ac '${{ inputs.config }}'
+      run: pre-commit run -a
       shell: bash
 
     - name: 🚸 Run pre-commit-ci-lite

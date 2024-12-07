@@ -26,8 +26,8 @@ jobs:
     steps:
       - uses: 5ouma/utils/pre-commit@main
         with:
-          config: path/to/config
-          # default is .github/pre-commit.yml
+          local: true
+          # default is false
 ```
 
 ### 🍞 Setup Bun with Cache
