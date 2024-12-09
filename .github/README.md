@@ -25,9 +25,6 @@ jobs:
     runs-on: Ubuntu-Latest
     steps:
       - uses: 5ouma/utils/pre-commit@main
-        with:
-          local: true
-          # default is false
 ```
 
 ### 🍞 Setup Bun with Cache
