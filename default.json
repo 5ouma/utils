@@ -2,11 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:best-practices"],
   "dependencyDashboard": false,
+  "lockFileMaintenance": { "enabled": true },
   "minimumReleaseAge": "2 days",
   "reviewers": ["5ouma"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
       "automerge": true
     }
   ]
