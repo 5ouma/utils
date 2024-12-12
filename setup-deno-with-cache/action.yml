@@ -15,4 +15,3 @@ runs:
           ~/.deno
           ~/.cache/deno
         key: ${{ runner.os }}-deno-${{ hashFiles('./deno.lock') }}
-        restore-keys: ${{ runner.os }}-deno-

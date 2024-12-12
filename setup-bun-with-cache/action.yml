@@ -13,7 +13,6 @@ runs:
       with:
         path: ./node_modules
         key: ${{ runner.os }}-bun-${{ hashFiles('./bun.lockb') }}
-        restore-keys: ${{ runner.os }}-bun-
 
     - name: 📦 Install Dependencies
       run: bun install --frozen-lockfile
