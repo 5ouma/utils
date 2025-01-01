@@ -53,6 +53,6 @@ jobs:
 
 ```json
 {
-  "extends": ["github>5ouma/utils"]
+  "extends": ["github>5ouma/utils", "github>5ouma/utils:labels"]
 }
 ```
