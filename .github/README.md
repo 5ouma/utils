@@ -4,12 +4,11 @@
 
 **🔧 Utilities to make my life better**
 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/5ouma/utils?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/5ouma/utils?style=flat-square)
-[![GitHub last commit](https://img.shields.io/github/last-commit/5ouma/utils?style=flat-square)](https://github.com/5ouma/utils/commit/HEAD)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/5ouma/utils?style=flat-square)](https://github.com/5ouma/utils/commits/main)
 <br />
+
 [![pre-commit](https://img.shields.io/github/actions/workflow/status/5ouma/utils/pre-commit.yml?label=pre-commit&style=flat-square)](https://github.com/5ouma/utils/actions/workflows/pre-commit.yml)
+
+![Repobeats Analytics Image](https://repobeats.axiom.co/api/embed/d782636a7ff8da4b10a5eb4c9465b211d5f003d5.svg)
 
 </div>
 
