@@ -17,7 +17,7 @@ runs:
 
     - name: "#️⃣ Download pre-commit hooks"
       if: ${{ hashFiles('./.pre-commit-config.yaml') == '' }}
-      run: curl -O "https://raw.githubusercontent.com/5ouma/utils/refs/heads/main/.pre-commit-config.yaml"
+      run: curl -O https://raw.githubusercontent.com/5ouma/utils/refs/heads/main/.pre-commit-config.yaml
       shell: bash
 
     - name: 🫙 Cache pre-commit Dependencies
