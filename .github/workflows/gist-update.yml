@@ -26,7 +26,6 @@ jobs:
             ~/.deno
             ~/.cache/deno
           key: ${{ runner.os }}-opml-generator-${{ steps.opml-generator.outputs.version }}
-          restore-keys: ${{ runner.os }}-opml-generator-
 
       - name: ⬇️ Download the TOML and OPML Repository
         run: |
