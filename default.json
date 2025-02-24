@@ -7,7 +7,7 @@
   "reviewers": ["5ouma"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
+      "matchUpdateTypes": ["minor", "patch", "lockFileMaintenance"],
       "automerge": true
     }
   ]
