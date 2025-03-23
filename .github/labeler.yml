@@ -1,0 +1,62 @@
+version: v1
+
+labels:
+  - label: 🧨 Breaking Change
+    sync: true
+    matcher:
+      commits: '^\w+(\(.+\))?!:\s.+'
+
+  - label: 🎉 New Feature
+    sync: true
+    matcher:
+      commits: '^feat(\(.+\))?!?:\s.+'
+
+  - label: 🧰 Bug
+    sync: true
+    matcher:
+      commits: '^fix(\((?!deps).+\))?!?:\s.+'
+
+  - label: 📖 Documentation
+    sync: true
+    matcher:
+      commits: '^docs(\(.+\))?!?:\s.+'
+
+  - label: 🎨 Style
+    sync: true
+    matcher:
+      commits: '^style(\(.+\))?!?:\s.+'
+
+  - label: 🧹 Refactoring
+    sync: true
+    matcher:
+      commits: '^refactor(\(.+\))?!?:\s.+'
+
+  - label: 🏎️ Performance
+    sync: true
+    matcher:
+      commits: '^perf(\(.+\))?!?:\s.+'
+
+  - label: 🧪 Testing
+    sync: true
+    matcher:
+      commits: '^test(\(.+\))?!?:\s.+'
+
+  - label: 🔨 Build
+    sync: true
+    matcher:
+      commits: '^build(\(.+\))?!?:\s.+'
+
+  - label: 🎽 CI
+    sync: true
+    matcher:
+      commits: '^ci(\(.+\))?!?:\s.+'
+
+  - label: 🔧 Maintenance
+    sync: true
+    matcher:
+      commits: '^chore(\((?!deps).+\))?!?:\s.+'
+
+  - label: ◀️ Revert
+    sync: true
+    matcher:
+      commits: '^revert(\(.+\))?!?:\s.+'

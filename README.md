@@ -20,7 +20,7 @@
 
 ```yml
 jobs:
-  build:
+  job:
     runs-on: Ubuntu-Latest
     steps:
       - uses: 5ouma/utils/pre-commit@main
@@ -30,7 +30,7 @@ jobs:
 
 ```yml
 jobs:
-  build:
+  job:
     runs-on: Ubuntu-Latest
     steps:
       - uses: 5ouma/utils/setup-bun-with-cache@main
@@ -40,10 +40,24 @@ jobs:
 
 ```yml
 jobs:
-  build:
+  job:
     runs-on: Ubuntu-Latest
     steps:
       - uses: 5ouma/utils/setup-deno-with-cache@main
+```
+
+### 🏷️ Labeler
+
+```yml
+jobs:
+  job:
+    permissions:
+      pull-requests: write
+    runs-on: Ubuntu-Latest
+    steps:
+      - uses: fuxingloh/multi-labeler@v4
+        with:
+          config-repo: 5ouma/utils
 ```
 
 <br />
