@@ -44,7 +44,7 @@ labels:
   - label: 🔨 Build
     sync: true
     matcher:
-      commits: '^build(\(\w+\))?!?:\s.+'
+      commits: '^build(\((?!deps)\w+\))?!?:\s.+'
 
   - label: 🎽 CI
     sync: true
