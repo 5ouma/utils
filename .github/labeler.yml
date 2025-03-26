@@ -4,59 +4,59 @@ labels:
   - label: 🧨 Breaking Change
     sync: true
     matcher:
-      commits: '^\w+(\(.+\))?!:\s.+'
+      commits: '^\w+(\(\w+\))?!:\s.+'
 
   - label: 🎉 New Feature
     sync: true
     matcher:
-      commits: '^feat(\(.+\))?!?:\s.+'
+      commits: '^feat(\(\w+\))?!?:\s.+'
 
   - label: 🧰 Bug
     sync: true
     matcher:
-      commits: '^fix(\((?!deps).+\))?!?:\s.+'
+      commits: '^fix(\((?!deps)\w+\))?!?:\s.+'
 
   - label: 📖 Documentation
     sync: true
     matcher:
-      commits: '^docs(\(.+\))?!?:\s.+'
+      commits: '^docs(\(\w+\))?!?:\s.+'
 
   - label: 🎨 Style
     sync: true
     matcher:
-      commits: '^style(\(.+\))?!?:\s.+'
+      commits: '^style(\(\w+\))?!?:\s.+'
 
   - label: 🧹 Refactoring
     sync: true
     matcher:
-      commits: '^refactor(\(.+\))?!?:\s.+'
+      commits: '^refactor(\(\w+\))?!?:\s.+'
 
   - label: 🏎️ Performance
     sync: true
     matcher:
-      commits: '^perf(\(.+\))?!?:\s.+'
+      commits: '^perf(\(\w+\))?!?:\s.+'
 
   - label: 🧪 Testing
     sync: true
     matcher:
-      commits: '^test(\(.+\))?!?:\s.+'
+      commits: '^test(\(\w+\))?!?:\s.+'
 
   - label: 🔨 Build
     sync: true
     matcher:
-      commits: '^build(\(.+\))?!?:\s.+'
+      commits: '^build(\(\w+\))?!?:\s.+'
 
   - label: 🎽 CI
     sync: true
     matcher:
-      commits: '^ci(\(.+\))?!?:\s.+'
+      commits: '^ci(\(\w+\))?!?:\s.+'
 
   - label: 🔧 Maintenance
     sync: true
     matcher:
-      commits: '^chore(\((?!deps).+\))?!?:\s.+'
+      commits: '^chore(\((?!deps)\w+\))?!?:\s.+'
 
   - label: ◀️ Revert
     sync: true
     matcher:
-      commits: '^revert(\(.+\))?!?:\s.+'
+      commits: '^revert(\(\w+\))?!?:\s.+'
