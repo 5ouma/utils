@@ -1,0 +1,35 @@
+name: 🔒 Update Deno Lock File
+description: Post update action for deno.lock
+
+inputs:
+  directory:
+    description: Path to the source directory
+    required: false
+    default: src
+
+outputs:
+  file_changed:
+    description: If any files are modified
+    value: ${{ steps.check.outputs.files != '' }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: 🦕 Setup Deno
+      uses: 5ouma/utils/setup-deno-with-cache@main
+
+    - name: 🔒 Update Lock File
+      shell: bash
+      run: deno cache ${{ inputs.directory }} --frozen=false
+
+    - name: 🔍 Check Changes
+      id: check
+      shell: bash
+      run: echo "files=$(git ls-files -mo --exclude-standard)" | tee -a "$GITHUB_OUTPUT"
+
+    - name: 📝 Commit and Push Changes
+      if: ${{ steps.check.outputs.files != '' }}
+      uses: suzuki-shunsuke/commit-action@cc96d3a3fd959d05e9b79ca395eb30b835aeba24 # v0.0.7
+      with:
+        commit_message: "chore(deps): Update deno.lock"

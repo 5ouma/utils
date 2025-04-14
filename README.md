@@ -46,6 +46,18 @@ jobs:
       - uses: 5ouma/utils/setup-deno-with-cache@main
 ```
 
+### 🔒 Update Deno Lock File
+
+```yml
+jobs:
+  job:
+    runs-on: Ubuntu-Latest
+    steps:
+      - uses: 5ouma/utils/update-deno-lock-file@main
+        with:
+          directory: ./path/to/source # Optional
+```
+
 ### 🏷️ Labeler
 
 ```yml
