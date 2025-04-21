@@ -3,7 +3,7 @@
   "extends": [
     "config:best-practices",
     "helpers:pinGitHubActionDigestsToSemver",
-    "github>Omochice/renovate-config:deno"
+    "github>Omochice/renovate-config:deno#v3.2.0"
   ],
   "dependencyDashboard": false,
   "lockFileMaintenance": { "enabled": true },
