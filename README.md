@@ -23,7 +23,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/pre-commit@v0.1.0
+      - uses: 5ouma/utils/pre-commit@v0.1.1
 ```
 
 ### 🍞 Setup Bun with Cache
@@ -33,7 +33,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/setup-bun-with-cache@v0.1.0
+      - uses: 5ouma/utils/setup-bun-with-cache@v0.1.1
 ```
 
 ### 🦕 Setup Deno with Cache
@@ -43,7 +43,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/setup-deno-with-cache@v0.1.0
+      - uses: 5ouma/utils/setup-deno-with-cache@v0.1.1
 ```
 
 ### 🔒 Update Deno Lock File
@@ -53,7 +53,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/update-deno-lock-file@v0.1.0
+      - uses: 5ouma/utils/update-deno-lock-file@v0.1.1
         with:
           directory: ./path/to/source # Optional
 ```
@@ -78,6 +78,6 @@ jobs:
 
 ```json
 {
-  "extends": ["github>5ouma/utils#v0.1.0", "github>5ouma/utils:labels#v0.1.0"]
+  "extends": ["github>5ouma/utils#v0.1.1", "github>5ouma/utils:labels#v0.1.1"]
 }
 ```
