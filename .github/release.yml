@@ -1,0 +1,20 @@
+changelog:
+  exclude:
+    labels:
+      - 🚀 Release
+
+  categories:
+    - title: 🐙 GitHub Actions
+      labels: [🐙 GitHub Actions]
+    - title: 🚸 pre-commit
+      labels: [🚸 pre-commit]
+    - title: 🍞 Setup Bun with Cache
+      labels: [🍞 Setup Bun with Cache]
+    - title: 🦕 Setup Deno with Cache
+      labels: [🦕 Setup Deno with Cache]
+    - title: 🔒 Update Deno Lock File
+      labels: [🔒 Update Deno Lock File]
+    - title: 🏷️ Labeler
+      labels: [🏷️ Labeler]
+    - title: 🎨 Renovate
+      labels: [🎨 Renovate]
