@@ -17,7 +17,7 @@ runs:
 
   steps:
     - name: 🦕 Setup Deno
-      uses: 5ouma/utils/setup-deno-with-cache@v0.1.0
+      uses: 5ouma/utils/setup-deno-with-cache@v0.1.1
 
     - name: 🔒 Update Lock File
       shell: bash
