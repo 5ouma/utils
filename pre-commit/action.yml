@@ -17,7 +17,7 @@ runs:
 
     - name: "#️⃣ Download pre-commit hooks"
       if: ${{ hashFiles('./.pre-commit-config.yaml') == '' }}
-      run: curl -O "https://raw.githubusercontent.com/5ouma/utils/refs/heads/$ACTION_REF/.pre-commit-config.yaml"
+      run: curl -O "https://raw.githubusercontent.com/5ouma/utils/$ACTION_REF/.pre-commit-config.yaml"
       shell: bash
       env:
         ACTION_REF: ${{ github.action_ref }}
