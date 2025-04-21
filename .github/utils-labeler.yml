@@ -1,0 +1,50 @@
+version: v1
+
+labels:
+  - label: 🧨 Breaking Change
+    sync: true
+    matcher:
+      commits: '^\w+(\(\w+\))?!:\s.+'
+
+  - label: 🎉 New Feature
+    sync: true
+    matcher:
+      commits: '^feat(\(\w+\))?!?:\s.+'
+
+  - label: 🚸 pre-commit
+    sync: true
+    matcher:
+      files: [.pre-commit-config.yaml, pre-commit/**]
+
+  - label: 🍞 Setup Bun with Cache
+    sync: true
+    matcher:
+      files: setup-bun-with-cache/**
+
+  - label: 🦕 Setup Deno with Cache
+    sync: true
+    matcher:
+      files: setup-deno-with-cache/**
+
+  - label: 🔒 Update Deno Lock File
+    sync: true
+    matcher:
+      files: update-deno-lock-file/**
+
+  - label: 🐙 GitHub Actions
+    sync: true
+    matcher:
+      files:
+        any: ["**/action.yml"]
+        count:
+          gte: 2
+
+  - label: 🏷️ Labeler
+    sync: true
+    matcher:
+      files: .github/labeler.yml
+
+  - label: 🎨 Renovate
+    sync: true
+    matcher:
+      files: [default.json, labels.json]
