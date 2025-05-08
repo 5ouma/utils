@@ -23,7 +23,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/pre-commit@v0.1.2
+      - uses: 5ouma/utils/pre-commit@v0.1.3
 ```
 
 ### 🍞 Setup Bun with Cache
