@@ -8,6 +8,11 @@
   "dependencyDashboard": false,
   "lockFileMaintenance": { "enabled": true },
   "minimumReleaseAge": "2 days",
+  "renovate-config-presets": {
+    "managerFilePatterns": [
+      "/(^|\\/).?(renovate(?:rc)?|default)(?:\\.json5?)?$/"
+    ]
+  },
   "reviewers": ["5ouma"],
   "packageRules": [
     {
