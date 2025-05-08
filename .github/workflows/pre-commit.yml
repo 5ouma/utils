@@ -14,5 +14,10 @@ jobs:
     timeout-minutes: 3
 
     steps:
+      - name: 🚚 Checkout Repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
       - name: 🚸 Run pre-commit
-        uses: 5ouma/utils/pre-commit@5a1790ce25b801555b0202b0ce7aa98ee456951e # v0.1.2
+        uses: ./pre-commit
