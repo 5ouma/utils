@@ -20,7 +20,9 @@ runs:
       uses: 5ouma/utils/setup-deno-with-cache@5d4d9189866ac7eb6c2d0534cf535f3f1f571cff # v0.1.4
 
     - name: 🔒 Update Lock File
-      run: deno cache ${{ inputs.directory }} --frozen=false
+      env:
+        DIRECTORY: ${{ inputs.directory }}
+      run: deno cache "$DIRECTORY" --frozen=false
       shell: bash
 
     - name: 🔍 Check Changes
