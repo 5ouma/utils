@@ -2,6 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>5ouma/utils"],
   "pre-commit": { "enabled": true },
+  "renovate-config-presets": {
+    "managerFilePatterns": ["/(^|/).?(renovate(?:rc)?|default)(?:\\.json5?)?$/"]
+  },
   "customManagers": [
     {
       "customType": "regex",
