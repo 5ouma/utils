@@ -1,6 +1,11 @@
 name: 🚸 pre-commit
 description: Check the code with pre-commit hooks
 
+inputs:
+  token:
+    description: GitHub token
+    required: false
+
 runs:
   using: composite
 
@@ -19,10 +24,10 @@ runs:
 
     - name: "#️⃣ Download pre-commit hooks"
       if: ${{ hashFiles('./.pre-commit-config.yaml') == '' }}
-      run: curl -O "https://raw.githubusercontent.com/5ouma/utils/$ACTION_REF/.pre-commit-config.yaml"
-      shell: bash
       env:
         ACTION_REF: ${{ github.action_ref }}
+      run: curl -O "https://raw.githubusercontent.com/5ouma/utils/$ACTION_REF/.pre-commit-config.yaml"
+      shell: bash
 
     - name: 🫙 Cache pre-commit Dependencies
       uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
@@ -31,6 +36,9 @@ runs:
         key: ${{ runner.os }}-pre-commit-${{ hashFiles('./.pre-commit-config.yaml') }}
 
     - name: 🚸 Run pre-commit
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        GITHUB_TOKEN: ${{ inputs.token }}
       run: pre-commit run -a
       shell: bash
 
