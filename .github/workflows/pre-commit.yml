@@ -21,3 +21,5 @@ jobs:
 
       - name: 🚸 Run pre-commit
         uses: ./pre-commit
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
