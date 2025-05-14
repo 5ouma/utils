@@ -24,6 +24,8 @@ jobs:
     runs-on: Ubuntu-Latest
     steps:
       - uses: 5ouma/utils/pre-commit@v0.1.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Optional
 ```
 
 ### 🍞 Setup Bun with Cache
