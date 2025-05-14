@@ -1,6 +1,11 @@
 name: 🚸 pre-commit
 description: Check the code with pre-commit hooks
 
+inputs:
+  token:
+    description: GitHub token
+    required: false
+
 runs:
   using: composite
 
@@ -31,6 +36,9 @@ runs:
         key: ${{ runner.os }}-pre-commit-${{ hashFiles('./.pre-commit-config.yaml') }}
 
     - name: 🚸 Run pre-commit
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        GITHUB_TOKEN: ${{ inputs.token }}
       run: pre-commit run -a
       shell: bash
 
