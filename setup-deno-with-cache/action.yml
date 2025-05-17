@@ -15,3 +15,8 @@ runs:
           ~/.deno
           ~/.cache/deno
         key: ${{ runner.os }}-deno-${{ hashFiles('./deno.lock') }}
+
+    - name: 📦 Install Dependencies
+      if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+      run: deno install --frozen
+      shell: bash
