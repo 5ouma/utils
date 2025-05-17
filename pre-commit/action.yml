@@ -4,7 +4,7 @@ description: Check the code with pre-commit hooks
 inputs:
   token:
     description: GitHub token
-    required: false
+    required: true
 
 runs:
   using: composite
