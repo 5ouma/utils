@@ -40,16 +40,6 @@ jobs:
       - uses: 5ouma/utils/setup-bun-with-cache@v0.2.0
 ```
 
-### 🦕 Setup Deno with Cache
-
-```yml
-jobs:
-  job:
-    runs-on: Ubuntu-Latest
-    steps:
-      - uses: 5ouma/utils/setup-deno-with-cache@v0.2.0
-```
-
 ### 🔒 Update Deno Lock File
 
 ```yml
