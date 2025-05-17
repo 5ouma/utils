@@ -4,12 +4,12 @@ labels:
   - label: 🧨 Breaking Change
     sync: true
     matcher:
-      commits: '^\w+(\(\w+\))?!:\s.+'
+      commits: ^\w+(\([\w-]+\))?!:\s.+
 
   - label: 🎉 New Feature
     sync: true
     matcher:
-      commits: '^feat(\(\w+\))?!?:\s.+'
+      commits: ^feat(\([\w-]+\))?!?:\s.+
 
   - label: 🚸 pre-commit
     sync: true

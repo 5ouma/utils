@@ -48,8 +48,6 @@ jobs:
     runs-on: Ubuntu-Latest
     steps:
       - uses: 5ouma/utils/update-deno-lock-file@v0.2.0
-        with:
-          directory: ./path/to/source # Optional
 ```
 
 ### 🏷️ Labeler
