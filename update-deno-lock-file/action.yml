@@ -1,12 +1,6 @@
 name: 🔒 Update Deno Lock File
 description: Post update action for deno.lock
 
-inputs:
-  directory:
-    description: Path to the source directory
-    required: false
-    default: src
-
 outputs:
   file_changed:
     description: If any files are modified
@@ -19,18 +13,9 @@ runs:
     - name: 🦕 Setup Deno
       id: setup-deno
       uses: denoland/setup-deno@e95548e56dfa95d4e1a28d6f422fafe75c4c26fb # v2.0.3
-      with:
-        cache: true
 
     - name: 📦 Install Dependencies
-      if: ${{ steps.setup-deno.outputs.cache-hit != 'true' }}
-      run: deno install --frozen
-      shell: bash
-
-    - name: 🔒 Update Lock File
-      env:
-        DIRECTORY: ${{ inputs.directory }}
-      run: deno cache "$DIRECTORY" --frozen=false
+      run: deno install --frozen=false
       shell: bash
 
     - name: 🔍 Check Changes
