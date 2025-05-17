@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: 5ouma/utils/pre-commit@v0.2.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Optional
+          token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### 🍞 Setup Bun with Cache
