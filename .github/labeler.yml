@@ -4,59 +4,59 @@ labels:
   - label: 🧨 Breaking Change
     sync: true
     matcher:
-      commits: '^\w+(\(\w+\))?!:\s.+'
+      commits: ^\w+(\([\w-]+\))?!:\s.+
 
   - label: 🎉 New Feature
     sync: true
     matcher:
-      commits: '^feat(\(\w+\))?!?:\s.+'
+      commits: ^feat(\([\w-]+\))?!?:\s.+
 
   - label: 🧰 Bug
     sync: true
     matcher:
-      commits: '^fix(\((?!deps)\w+\))?!?:\s.+'
+      commits: ^fix(\((?!deps)[\w-]+\))?!?:\s.+
 
   - label: 📖 Documentation
     sync: true
     matcher:
-      commits: '^docs(\(\w+\))?!?:\s.+'
+      commits: ^docs(\([\w-]+\))?!?:\s.+
 
   - label: 🎨 Style
     sync: true
     matcher:
-      commits: '^style(\(\w+\))?!?:\s.+'
+      commits: ^style(\([\w-]+\))?!?:\s.+
 
   - label: 🧹 Refactoring
     sync: true
     matcher:
-      commits: '^refactor(\(\w+\))?!?:\s.+'
+      commits: ^refactor(\([\w-]+\))?!?:\s.+
 
   - label: 🏎️ Performance
     sync: true
     matcher:
-      commits: '^perf(\(\w+\))?!?:\s.+'
+      commits: ^perf(\([\w-]+\))?!?:\s.+
 
   - label: 🧪 Testing
     sync: true
     matcher:
-      commits: '^test(\(\w+\))?!?:\s.+'
+      commits: ^test(\([\w-]+\))?!?:\s.+
 
   - label: 🔨 Build
     sync: true
     matcher:
-      commits: '^build(\((?!deps)\w+\))?!?:\s.+'
+      commits: ^build(\((?!deps)\w+\))?!?:\s.+
 
   - label: 🎽 CI
     sync: true
     matcher:
-      commits: '^ci(\(\w+\))?!?:\s.+'
+      commits: ^ci(\([\w-]+\))?!?:\s.+
 
   - label: 🔧 Maintenance
     sync: true
     matcher:
-      commits: '^chore(\((?!deps)\w+\))?!?:\s.+'
+      commits: ^chore(\((?!deps)[\w-]+\))?!?:\s.+
 
   - label: ◀️ Revert
     sync: true
     matcher:
-      commits: '^revert(\(\w+\))?!?:\s.+'
+      commits: ^revert(\([\w-]+\))?!?:\s.+
