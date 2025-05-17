@@ -17,7 +17,15 @@ runs:
 
   steps:
     - name: 🦕 Setup Deno
-      uses: 5ouma/utils/setup-deno-with-cache@f5466cbecd9bcaa9d35e14ece162ca78122406d3 # v0.1.5
+      id: setup-deno
+      uses: denoland/setup-deno@e95548e56dfa95d4e1a28d6f422fafe75c4c26fb # v2.0.3
+      with:
+        cache: true
+
+    - name: 📦 Install Dependencies
+      if: ${{ steps.setup-deno.outputs.cache-hit != 'true' }}
+      run: deno install --frozen
+      shell: bash
 
     - name: 🔒 Update Lock File
       env:
