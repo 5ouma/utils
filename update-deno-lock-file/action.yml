@@ -23,8 +23,8 @@ runs:
       run: echo "files=$(git ls-files -mo --exclude-standard)" | tee -a "$GITHUB_OUTPUT"
       shell: bash
 
-    - name: 📝 Commit and Push Changes
+    - name: 🚸 Run pre-commit-ci-lite
       if: ${{ steps.check.outputs.files != '' }}
-      uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1.3.1
+      uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
       with:
-        commit-message: "chore(deps): Update deno.lock"
+        msg: "chore(deps): Update deno.lock"

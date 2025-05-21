@@ -51,7 +51,9 @@ jobs:
 ```
 
 > [!IMPORTANT]
-> You need to install [autofix.ci](https://autofix.ci) to commit the changes.
+> You need to install [pre-commit.ci lite] to commit the changes.
+
+[pre-commit.ci lite]: https://pre-commit.ci/lite
 
 ## 🏷️ Labeler
 
