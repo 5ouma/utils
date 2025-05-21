@@ -25,7 +25,6 @@ runs:
 
     - name: 📝 Commit and Push Changes
       if: ${{ steps.check.outputs.files != '' }}
-      uses: suzuki-shunsuke/commit-action@cc96d3a3fd959d05e9b79ca395eb30b835aeba24 # v0.0.7
+      uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1.3.1
       with:
-        commit_message: "chore(deps): Update deno.lock"
-      continue-on-error: true
+        commit-message: "chore(deps): Update deno.lock"

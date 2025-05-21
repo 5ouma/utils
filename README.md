@@ -50,6 +50,9 @@ jobs:
       - uses: 5ouma/utils/update-deno-lock-file@v0.2.1
 ```
 
+> [!IMPORTANT]
+> You need to install [autofix.ci](https://autofix.ci) to commit the changes.
+
 ## 🏷️ Labeler
 
 ```yml
