@@ -25,7 +25,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/pre-commit@v0.2.1
+      - uses: 5ouma/utils/pre-commit@v0.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Optional
 ```
@@ -37,7 +37,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/setup-bun-with-cache@v0.2.1
+      - uses: 5ouma/utils/setup-bun-with-cache@v0.3.0
 ```
 
 ### 🔒 Update Deno Lock File
@@ -47,7 +47,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/update-deno-lock-file@v0.2.1
+      - uses: 5ouma/utils/update-deno-lock-file@v0.3.0
 ```
 
 > [!IMPORTANT]
@@ -76,6 +76,6 @@ jobs:
 
 ```json
 {
-  "extends": ["github>5ouma/utils#v0.2.1", "github>5ouma/utils:labels#v0.2.1"]
+  "extends": ["github>5ouma/utils#v0.3.0", "github>5ouma/utils:labels#v0.3.0"]
 }
 ```
