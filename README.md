@@ -50,7 +50,7 @@ jobs:
       - uses: 5ouma/utils/update-deno-lock-file@v0.2.1
 ```
 
-### 🏷️ Labeler
+## 🏷️ Labeler
 
 ```yml
 jobs:
