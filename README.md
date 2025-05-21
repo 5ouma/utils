@@ -51,7 +51,10 @@ jobs:
 ```
 
 > [!IMPORTANT]
-> You need to install [autofix.ci](https://autofix.ci) to commit the changes.
+> You need to:
+>
+> 1. install [autofix.ci](https://autofix.ci) to commit the changes.
+> 2. name workflows `autofix.ci`
 
 ## 🏷️ Labeler
 
