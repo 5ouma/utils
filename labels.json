@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "labels": ["⛓️ Dependencies"],
   "packageRules": [
-    { "matchUpdateTypes": "lockFileMaintenance", "addLabels": ["🧠 Meta"] },
-    { "matchManagers": ["github-actions"], "addLabels": ["🧠 Meta"] }
+    { "matchManagers": ["github-actions"], "addLabels": ["🧠 Meta"] },
+    { "matchDepTypes": ["devDependencies"], "addLabels": ["🧠 Meta"] },
+    { "matchUpdateTypes": ["lockFileMaintenance"], "addLabels": ["🧠 Meta"] }
   ]
 }
