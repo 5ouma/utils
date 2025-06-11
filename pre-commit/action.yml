@@ -34,12 +34,18 @@ runs:
       with:
         path: ~/.cache/pre-commit
         key: ${{ runner.os }}-pre-commit-${{ hashFiles('./.pre-commit-config.yaml') }}
+        restore-keys: ${{ runner.os }}-pre-commit-
 
     - name: 🚸 Run pre-commit
       env:
         GH_TOKEN: ${{ inputs.token }}
         GITHUB_TOKEN: ${{ inputs.token }}
       run: pre-commit run -a
+      shell: bash
+
+    - name: 🧹 Clean up unused hooks
+      if: ${{ always() }}
+      run: pre-commit gc
       shell: bash
 
     - name: 🚸 Run pre-commit-ci-lite
