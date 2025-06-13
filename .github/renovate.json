@@ -13,6 +13,15 @@
         "(?<depName>github.com/suzuki-shunsuke/(pinact|ghalint))(/v(?<major>[0-9]+))?/cmd/(pinact|ghalint)@(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
       "datasourceTemplate": "go"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["pre-commit/action.yml"],
+      "matchStrings": [
+        "python-version: (?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "datasourceTemplate": "python-version",
+      "depNameTemplate": "python"
     }
   ]
 }
