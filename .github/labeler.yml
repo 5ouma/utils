@@ -54,9 +54,14 @@ labels:
   - label: 🔧 Maintenance
     sync: true
     matcher:
-      commits: ^chore(\((?!deps)[\w-]+\))?!?:\s.+
+      commits: ^chore(\((?!deps|release)[\w-]+\))?!?:\s.+
 
   - label: ◀️ Revert
     sync: true
     matcher:
       commits: ^revert(\([\w-]+\))?!?:\s.+
+
+  - label: 🚀 Release
+    sync: true
+    matcher:
+      commits: "^chore\\(release\\): prepare for the next release$"
