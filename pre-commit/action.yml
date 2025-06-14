@@ -10,7 +10,7 @@ runs:
   using: composite
 
   steps:
-    - name: 🚚 Checkout Repository
+    - name: 🚚 Checkout repository
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         persist-credentials: false
@@ -24,12 +24,12 @@ runs:
 
     - name: "#️⃣ Download pre-commit hooks"
       if: ${{ hashFiles('./.pre-commit-config.yaml') == '' }}
-      env:
-        ACTION_REF: ${{ github.action_ref }}
       run: curl -O "https://raw.githubusercontent.com/5ouma/utils/$ACTION_REF/.pre-commit-config.yaml"
       shell: bash
+      env:
+        ACTION_REF: ${{ github.action_ref }}
 
-    - name: 🫙 Cache pre-commit Dependencies
+    - name: 🫙 Cache pre-commit dependencies
       uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
       with:
         path: ~/.cache/pre-commit
@@ -37,11 +37,11 @@ runs:
         restore-keys: ${{ runner.os }}-pre-commit-
 
     - name: 🚸 Run pre-commit
+      run: pre-commit run -a
+      shell: bash
       env:
         GH_TOKEN: ${{ inputs.token }}
         GITHUB_TOKEN: ${{ inputs.token }}
-      run: pre-commit run -a
-      shell: bash
 
     - name: 🧹 Clean up unused hooks
       if: ${{ always() }}

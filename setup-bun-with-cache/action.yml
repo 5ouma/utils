@@ -15,7 +15,7 @@ runs:
         path: ./node_modules
         key: ${{ runner.os }}-bun-${{ hashFiles('./bun.lock', './bun.lockb') }}
 
-    - name: 📦 Install Dependencies
+    - name: 📦 Install dependencies
       if: ${{ steps.cache.outputs.cache-hit != 'true' }}
       run: bun install --frozen-lockfile
       shell: bash
