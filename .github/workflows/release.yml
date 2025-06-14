@@ -23,8 +23,15 @@ jobs:
           persist-credentials: true
 
       - name: 🔖 Release a new version
+        id: tagpr
         uses: Songmu/tagpr@812f0c28980cb9a1e5cf427b65c1ac6a1d2b4377 # v1.6.1
         with:
           config: .github/tagpr.ini
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔄 Update major and minor tags
+        if: ${{ steps.tagpr.outputs.tag != '' }}
+        uses: haya14busa/action-update-semver@22a3666f9309f0d72ab0ea6c49b7a8019c1eab38 # v1.3.0
+        with:
+          tag: ${{ steps.tagpr.outputs.tag }}
