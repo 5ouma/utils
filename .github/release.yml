@@ -1,14 +1,14 @@
 changelog:
   categories:
-    - title: &github-actions 🐙 GitHub Actions
-      labels: [*github-actions]
-    - title: &pre-commit 🚸 pre-commit
-      labels: [*pre-commit]
-    - title: &setup-bun 🍞 Setup Bun with Cache
-      labels: [*setup-bun]
-    - title: &update-deno-lock 🔒 Update Deno Lock File
-      labels: [*update-deno-lock]
-    - title: &labeler 🏷️ Labeler
-      labels: [*labeler]
-    - title: &renovate 🎨 Renovate
-      labels: [*renovate]
+    - title: 🐙 GitHub Actions
+      labels: [🐙 GitHub Actions]
+    - title: 🚸 pre-commit
+      labels: [🚸 pre-commit]
+    - title: 🍞 Setup Bun with Cache
+      labels: [🍞 Setup Bun with Cache]
+    - title: 🔒 Update Deno Lock File
+      labels: [🔒 Update Deno Lock File]
+    - title: 🏷️ Labeler
+      labels: [🏷️ Labeler]
+    - title: 🎨 Renovate
+      labels: [🎨 Renovate]
