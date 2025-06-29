@@ -23,8 +23,11 @@ runs:
       shell: bash
 
     - name: "#️⃣ Download pre-commit hooks"
+      id: hooks
       if: ${{ hashFiles('./.pre-commit-config.yaml') == '' }}
-      run: curl -O "https://raw.githubusercontent.com/5ouma/utils/$ACTION_REF/.pre-commit-config.yaml"
+      run: |
+        curl -O "https://raw.githubusercontent.com/5ouma/utils/$ACTION_REF/.pre-commit-config.yaml"
+        echo 'downloaded=true' | tee -a "$GITHUB_OUTPUT"
       shell: bash
       env:
         ACTION_REF: ${{ github.action_ref }}
@@ -46,6 +49,11 @@ runs:
     - name: 🧹 Clean up unused hooks
       if: ${{ always() }}
       run: pre-commit gc
+      shell: bash
+
+    - name: 🗑️ Remove downloaded hooks
+      if: ${{ steps.hooks.outputs.downloaded == 'true' }}
+      run: rm .pre-commit-config.yaml
       shell: bash
 
     - name: 🚸 Run pre-commit-ci-lite
