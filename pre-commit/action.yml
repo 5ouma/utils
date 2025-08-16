@@ -23,7 +23,7 @@ runs:
       id: hooks
       if: ${{ hashFiles('./.pre-commit-config.yml') == '' }}
       run: |
-        curl -O "https://raw.githubusercontent.com/5ouma/utils/$ACTION_REF/.pre-commit-config.yml"
+        curl -O "https://raw.githubusercontent.com/$GITHUB_ACTION_REPOSITORY/$ACTION_REF/.pre-commit-config.yml"
         echo 'downloaded=true' | tee -a "$GITHUB_OUTPUT"
       shell: bash
       env:
