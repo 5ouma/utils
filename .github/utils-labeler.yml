@@ -21,11 +21,6 @@ labels:
     matcher:
       files: setup-bun-with-cache/**
 
-  - label: 🦕 Setup Deno with Cache
-    sync: true
-    matcher:
-      files: setup-deno-with-cache/**
-
   - label: 🔒 Update Deno Lock File
     sync: true
     matcher:
