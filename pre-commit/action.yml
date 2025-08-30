@@ -43,6 +43,11 @@ runs:
         GH_TOKEN: ${{ inputs.token }}
         GITHUB_TOKEN: ${{ inputs.token }}
 
+    - name: 🧹 Clean up unused hooks
+      if: ${{ always() }}
+      run: prek gc
+      shell: bash
+
     - name: 🗑️ Remove downloaded hooks
       if: ${{ always() && steps.hooks.outputs.downloaded == 'true' }}
       run: rm .pre-commit-config.yaml
