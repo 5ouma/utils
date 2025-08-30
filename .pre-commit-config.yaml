@@ -16,7 +16,7 @@ repos:
         exclude: ^(.*\.go|go\..*|.*\.plist)$
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.35.4
+    rev: v1.35.5
     hooks:
       - id: typos
 
@@ -39,7 +39,7 @@ repos:
         args: [--verify]
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.4.1
+          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.4.2
         types: [yaml]
         files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
 
@@ -71,7 +71,7 @@ repos:
         args: [--pedantic]
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 41.76.0
+    rev: 41.84.0
     hooks:
       - id: renovate-config-validator
         files: (^|/).?(renovate(?:rc)?|default|labels)(?:\.json5?)?$
