@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices",
+    ":pinDependencies",
     "helpers:pinGitHubActionDigestsToSemver",
     "github>Omochice/renovate-config:deno#v4.0.1"
   ],
