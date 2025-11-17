@@ -72,6 +72,21 @@ jobs:
 
 <br />
 
+## 🚸 pre-commit hooks
+
+```yml
+default_install_hook_types:
+  - pre-push
+
+repos:
+  - repo: https://github.com/5ouma/utils
+    rev: v0.5.0
+    hooks:
+      - id: upload-git-commit-notion
+```
+
+<br />
+
 ## 🎨 Renovate
 
 ```json
