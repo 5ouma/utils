@@ -14,7 +14,7 @@ labels:
   - label: 🚸 pre-commit
     sync: true
     matcher:
-      files: [.pre-commit-config.yaml, pre-commit/**]
+      files: [.pre-commit-config.yaml, .pre-commit-hooks.yaml, pre-commit/**]
 
   - label: 🍞 Setup Bun with Cache
     sync: true
