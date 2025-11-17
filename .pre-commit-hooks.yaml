@@ -4,4 +4,5 @@
   entry: pre-commit/scripts/upload-git-commit-notion
   language: script
   always_run: true
+  pass_filenames: false
   stages: [pre-push]
