@@ -27,6 +27,7 @@ jobs:
     steps:
       - uses: 5ouma/utils/pre-commit@v0.6.0
         with:
+          config: /path/to/pre-commit-config.yml # Optional
           token: ${{ secrets.GITHUB_TOKEN }} # Optional
 ```
 
