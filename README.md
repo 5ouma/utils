@@ -25,7 +25,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/pre-commit@v0.6.0
+      - uses: 5ouma/utils/pre-commit@v0.7.0
         with:
           config: /path/to/pre-commit-config.yml # Optional
           token: ${{ secrets.GITHUB_TOKEN }} # Optional
@@ -38,7 +38,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/setup-bun-with-cache@v0.6.0
+      - uses: 5ouma/utils/setup-bun-with-cache@v0.7.0
 ```
 
 ### 🔒 Update Deno Lock File
@@ -48,7 +48,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/update-deno-lock-file@v0.6.0
+      - uses: 5ouma/utils/update-deno-lock-file@v0.7.0
 ```
 
 > [!IMPORTANT]
@@ -81,7 +81,7 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/5ouma/utils
-    rev: v0.6.0
+    rev: v0.7.0
     hooks:
       - id: upload-git-commit-notion
 ```
@@ -92,6 +92,6 @@ repos:
 
 ```json
 {
-  "extends": ["github>5ouma/utils#v0.6.0", "github>5ouma/utils:labels#v0.6.0"]
+  "extends": ["github>5ouma/utils#v0.7.0", "github>5ouma/utils:labels#v0.7.0"]
 }
 ```
