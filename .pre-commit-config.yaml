@@ -77,11 +77,11 @@ repos:
         files: (^|/).?(renovate(?:rc)?|default|labels)(?:\.json5?)?$
         args: [--strict]
 
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+  - repo: https://github.com/rvben/rumdl-pre-commit
+    rev: v0.0.180
     hooks:
-      - id: markdownlint-fix
-        args: [--disable, MD013, MD024, MD033, MD036]
+      - id: rumdl
+        args: [--fix, --disable, "MD013,MD024,MD033,MD036"]
 
   - repo: https://github.com/detailyang/pre-commit-shell
     rev: v1.0.6
