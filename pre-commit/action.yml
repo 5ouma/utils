@@ -2,6 +2,10 @@ name: 🚸 pre-commit
 description: Check the code with pre-commit hooks
 
 inputs:
+  config:
+    description: pre-commit config file path
+    required: false
+    default: .pre-commit-config.yaml
   token:
     description: GitHub token
     required: false
@@ -23,7 +27,7 @@ runs:
 
     - name: "#️⃣ Download pre-commit hooks"
       id: hooks
-      if: ${{ hashFiles('./.pre-commit-config.yaml') == '' }}
+      if: ${{ hashFiles(inputs.config) == '' }}
       run: |
         curl -O "https://raw.githubusercontent.com/$ACTION_REPOSITORY/$ACTION_REF/.pre-commit-config.yaml"
         echo 'downloaded=true' | tee -a "$GITHUB_OUTPUT"
@@ -36,20 +40,23 @@ runs:
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
       with:
         path: ~/.cache/prek
-        key: ${{ runner.os }}-pre-commit-${{ hashFiles('./.pre-commit-config.yaml') }}
+        key: ${{ runner.os }}-pre-commit-${{ hashFiles(inputs.config) }}
         restore-keys: ${{ runner.os }}-pre-commit-
 
     - name: ⚡ Run prek
-      run: prek run -a
+      run: prek run -ac="$PREK_CONFIG"
       shell: bash
       env:
+        PREK_CONFIG: ${{ inputs.config }}
         GH_TOKEN: ${{ inputs.token }}
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: 🗑️ Remove downloaded hooks
       if: ${{ always() && steps.hooks.outputs.downloaded == 'true' }}
-      run: rm .pre-commit-config.yaml
+      run: rm "$PREK_CONFIG""
       shell: bash
+      env:
+        PREK_CONFIG: ${{ inputs.config }}
 
     - name: 🚸 Run pre-commit-ci-lite
       if: ${{ always() }}
