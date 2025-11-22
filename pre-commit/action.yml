@@ -53,7 +53,7 @@ runs:
 
     - name: 🗑️ Remove downloaded hooks
       if: ${{ always() && steps.hooks.outputs.downloaded == 'true' }}
-      run: rm "$PREK_CONFIG""
+      run: rm "$PREK_CONFIG"
       shell: bash
       env:
         PREK_CONFIG: ${{ inputs.config }}
