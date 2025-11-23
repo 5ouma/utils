@@ -9,6 +9,7 @@
   "dependencyDashboard": false,
   "lockFileMaintenance": { "enabled": true },
   "minimumReleaseAge": "2 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "reviewers": ["5ouma"],
   "packageRules": [
     {

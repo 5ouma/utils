@@ -28,7 +28,7 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.8
+    rev: v1.7.9
     hooks:
       - id: actionlint
 
@@ -73,14 +73,14 @@ repos:
         args: [--no-config]
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 42.13.3
+    rev: 42.19.2
     hooks:
       - id: renovate-config-validator
         files: (^|/).?(renovate(?:rc)?|default|labels)(?:\.json5?)?$
         args: [--strict]
 
   - repo: https://github.com/rvben/rumdl-pre-commit
-    rev: v0.0.180
+    rev: v0.0.181
     hooks:
       - id: rumdl
         args: [--fix, --disable, "MD013,MD024,MD033,MD036"]
