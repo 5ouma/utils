@@ -27,7 +27,7 @@ runs:
 
     - name: "#️⃣ Download pre-commit hooks"
       id: hooks
-      if: ${{ hashFiles(inputs.config) == '' }}
+      if: ${{ inputs.config == '.pre-commit-config.yaml' && hashFiles(inputs.config) == '' }}
       run: |
         curl -O "https://raw.githubusercontent.com/$ACTION_REPOSITORY/$ACTION_REF/.pre-commit-config.yaml"
         echo 'downloaded=true' | tee -a "$GITHUB_OUTPUT"
