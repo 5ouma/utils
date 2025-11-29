@@ -80,7 +80,7 @@ repos:
         args: [--strict]
 
   - repo: https://github.com/rvben/rumdl-pre-commit
-    rev: v0.0.181
+    rev: v0.0.183
     hooks:
       - id: rumdl
         args: [--fix, --disable, "MD013,MD024,MD033,MD036"]
