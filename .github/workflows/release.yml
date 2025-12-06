@@ -11,7 +11,7 @@ permissions: {}
 jobs:
   release:
     name: 🚀 Release
-    runs-on: Ubuntu-Latest
+    runs-on: Ubuntu-Slim
     timeout-minutes: 1
 
     steps:
