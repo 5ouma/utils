@@ -23,7 +23,7 @@
 ```yml
 jobs:
   job:
-    runs-on: Ubuntu-Latest
+    runs-on: Ubuntu-Slim
     steps:
       - uses: 5ouma/utils/pre-commit@v0.7.1
         with:
@@ -46,7 +46,7 @@ jobs:
 ```yml
 jobs:
   job:
-    runs-on: Ubuntu-Latest
+    runs-on: Ubuntu-Slim
     steps:
       - uses: 5ouma/utils/update-deno-lock-file@v0.7.1
 ```
@@ -64,7 +64,7 @@ jobs:
   job:
     permissions:
       pull-requests: write
-    runs-on: Ubuntu-Latest
+    runs-on: Ubuntu-Slim
     steps:
       - uses: fuxingloh/multi-labeler@v4
         with:
