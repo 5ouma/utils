@@ -40,8 +40,8 @@ runs:
       uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
       with:
         path: ~/.cache/prek
-        key: ${{ runner.os }}-pre-commit-${{ hashFiles(inputs.config) }}
-        restore-keys: ${{ runner.os }}-pre-commit-
+        key: pre-commit-${{ runner.os }}-${{ hashFiles(inputs.config) }}
+        restore-keys: pre-commit-${{ runner.os }}-
 
     - name: ⚡ Run prek
       run: prek run -ac="$PREK_CONFIG"
