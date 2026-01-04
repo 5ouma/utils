@@ -1,3 +1,33 @@
+- id: pinact
+  name: Pin versions of Actions and reusable workflows
+  description: Pin versions of GitHub Actions and reusable workflows
+  entry: pinact run
+  args: [--verify]
+  language: golang
+  additional_dependencies:
+    - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.8.0
+  types: [yaml]
+  files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
+
+- id: ghalint
+  name: Validate GitHub Actions workflows
+  description: Check GitHub Actions workflows for security policy compliance
+  entry: ghalint run
+  language: golang
+  additional_dependencies:
+    - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.5.4
+  types: [yaml]
+  files: ^\.github/workflows/.+\.ya?ml$
+- id: ghalint-act
+  name: Validate GitHub Actions
+  description: Check GitHub Actions for security policy compliance
+  entry: ghalint act
+  language: golang
+  additional_dependencies:
+    - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.5.4
+  types: [yaml]
+  files: ^(.+/)*action\.ya?ml$
+
 - id: upload-git-commit-notion
   name: Upload Git Commits to Notion
   description: Upload not pushed Git commits data to Notion database
