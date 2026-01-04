@@ -11,7 +11,7 @@ itemData="$(op item get 'Notion Git Integration' --fields='label=database-id,cre
 databaseId="$(echo "$itemData" | cut -d ',' -f 1)" && declare -r databaseId
 credential="$(echo "$itemData" | cut -d ',' -f 2)" && declare -r credential
 
-url="https://$(git config --get remote.origin.url | sed -Ee 's/((https|ssh):\/\/|git@|\.git)//g' -e 's/:/\//')" && declare -r url
+url="https://$(echo "$PRE_COMMIT_REMOTE_URL" | sed -Ee 's/((https|ssh):\/\/|git@|\.git)//g' -e 's/:/\//')" && declare -r url
 declare message description date notionData
 while read -r hash; do
   message="$(git log -n 1 "$hash" --format='%s')"
@@ -39,4 +39,4 @@ EOF
     -H 'Notion-Version: 2025-09-03' \
     --data "$notionData" |
     jq -r '.id'
-done < <(git log --branches --not --remotes --format='%h')
+done < <(git log "$PRE_COMMIT_FROM_REF".."$PRE_COMMIT_TO_REF" --format='%h')
