@@ -77,16 +77,12 @@ jobs:
 
 ```yml
 default_install_hook_types:
-  - pre-commit
   - pre-push
 
 repos:
   - repo: https://github.com/5ouma/utils
     rev: v0.8.0
     hooks:
-      - id: pinact
-      - id: ghalint
-      - id: ghalint-act
       - id: upload-git-commit-notion
 ```
 
