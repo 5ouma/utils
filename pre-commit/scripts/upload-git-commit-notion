@@ -39,4 +39,4 @@ EOF
     -H 'Notion-Version: 2025-09-03' \
     --data "$notionData" |
     jq -r '.id'
-done < <(git log "$PRE_COMMIT_FROM_REF".."$PRE_COMMIT_TO_REF" --format='%h')
+done < <(git -c log.showSignature=false log "$PRE_COMMIT_FROM_REF".."$PRE_COMMIT_TO_REF" --format='%h')
