@@ -2,7 +2,7 @@
   name: Upload Git Commits to Notion
   description: Upload not pushed Git commits data to Notion database
   entry: pre-commit/scripts/upload-git-commit-notion
-  language: unsupported_script
+  language: script
   always_run: true
   verbose: true
   pass_filenames: false
