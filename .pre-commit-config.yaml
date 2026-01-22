@@ -76,6 +76,8 @@ repos:
     rev: 42.84.0
     hooks:
       - id: renovate-config-validator
+        language: bun
+        language_version: default
         files: (^|/).?(renovate(?:rc)?|default|labels)(?:\.json5?)?$
         args: [--strict]
 
