@@ -31,6 +31,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} # Optional
 ```
 
+> [!IMPORTANT]
+> You need to install [pre-commit.ci lite](https://pre-commit.ci/lite) to commit the changes.
+
 ### 🍞 Setup Bun with Cache
 
 ```yml
