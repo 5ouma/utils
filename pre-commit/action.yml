@@ -52,19 +52,19 @@ runs:
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: 🧹 Clean up unused hooks
-      if: ${{ always() }}
+      if: ${{ !cancelled() }}
       run: prek cache gc
       shell: bash
 
     - name: 🗑️ Remove downloaded hooks
-      if: ${{ always() && steps.hooks.outputs.downloaded == 'true' }}
+      if: ${{ !cancelled() && steps.hooks.outputs.downloaded == 'true' }}
       run: rm "$PREK_CONFIG"
       shell: bash
       env:
         PREK_CONFIG: ${{ inputs.config }}
 
     - name: 🚸 Run pre-commit-ci-lite
-      if: ${{ always() }}
+      if: ${{ !cancelled() }}
       uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
       with:
         msg: "chore(fix): Auto fixes by pre-commit hooks"
