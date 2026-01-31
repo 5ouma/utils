@@ -67,7 +67,7 @@ jobs:
   job:
     permissions:
       pull-requests: write
-    runs-on: Ubuntu-Slim
+    runs-on: Ubuntu-Latest
     steps:
       - uses: fuxingloh/multi-labeler@v4
         with:
