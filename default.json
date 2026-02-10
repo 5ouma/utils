@@ -4,7 +4,7 @@
     "config:best-practices",
     ":pinDependencies",
     "helpers:pinGitHubActionDigestsToSemver",
-    "github>Omochice/renovate-config:deno#v4.0.1"
+    "github>Omochice/renovate-config:deno#v4.1.0"
   ],
   "dependencyDashboard": false,
   "lockFileMaintenance": { "enabled": true },
