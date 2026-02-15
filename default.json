@@ -7,7 +7,6 @@
     "github>Omochice/renovate-config:deno#v4.1.0"
   ],
   "dependencyDashboard": false,
-  "lockFileMaintenance": { "enabled": true },
   "minimumReleaseAge": "2 days",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
   "reviewers": ["5ouma"],
