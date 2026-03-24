@@ -4,7 +4,7 @@
     "config:best-practices",
     ":pinDependencies",
     "helpers:pinGitHubActionDigestsToSemver",
-    "github>Omochice/renovate-config:deno#v4.1.0"
+    "github>Omochice/renovate-config:deno#v4.1.1"
   ],
   "dependencyDashboard": false,
   "minimumReleaseAge": "2 days",
