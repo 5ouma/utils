@@ -19,6 +19,12 @@ runs:
       with:
         persist-credentials: false
 
+    - name: ⚡ Install prek
+      run: curl -L "https://github.com/j178/prek/releases/download/$PREK_VERSION/prek-installer.sh" | sh
+      shell: bash
+      env:
+        PREK_VERSION: v0.3.8
+
     - name: 🐹 Set up Go
       uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
       with:
@@ -35,14 +41,25 @@ runs:
         ACTION_REPOSITORY: ${{ github.action_repository }}
         ACTION_REF: ${{ github.action_ref }}
 
-    - name: ⚡ Run prek
-      uses: j178/prek-action@79f765515bd648eb4d6bb1b17277b7cb22cb6468 # v2.0.0
+    - name: 🫙 Cache pre-commit dependencies
+      uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
       with:
-        extra-args: --all-files --config=${{ inputs.config }}
-        prek-version: 0.3.8
+        path: ~/.cache/prek
+        key: pre-commit-${{ runner.os }}-${{ hashFiles(inputs.config) }}
+        restore-keys: pre-commit-${{ runner.os }}-
+
+    - name: ⚡ Run prek
+      run: prek run -ac="$PREK_CONFIG"
+      shell: bash
       env:
+        PREK_CONFIG: ${{ inputs.config }}
         GH_TOKEN: ${{ inputs.token }}
         GITHUB_TOKEN: ${{ inputs.token }}
+
+    - name: 🧹 Clean up unused hooks
+      if: ${{ !cancelled() }}
+      run: prek cache gc
+      shell: bash
 
     - name: 🗑️ Remove downloaded hooks
       if: ${{ !cancelled() && steps.hooks.outputs.downloaded == 'true' }}
