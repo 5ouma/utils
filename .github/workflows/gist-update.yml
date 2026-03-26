@@ -11,7 +11,9 @@ jobs:
   update:
     name: ⬆️ Update OPML in Gist
     runs-on: Ubuntu-Slim
-    environment: Gist-Update
+    environment:
+      name: Gist-Update
+      deployment: false
     timeout-minutes: 1
 
     steps:
