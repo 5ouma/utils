@@ -12,7 +12,9 @@ jobs:
   release:
     name: 🚀 Release
     runs-on: Ubuntu-Slim
-    environment: Release
+    environment:
+      name: Release
+      deployment: false
     timeout-minutes: 1
 
     steps:
