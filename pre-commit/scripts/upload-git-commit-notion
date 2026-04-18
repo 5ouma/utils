@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-commands=(op jq)
-for cmd in "${commands[@]}"; do
+cmds=(op jq)
+for cmd in "${cmds[@]}"; do
   (type "$cmd" &>/dev/null) || exit 0
 done
 
