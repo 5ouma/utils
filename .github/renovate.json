@@ -14,6 +14,15 @@
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "j178/prek"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [".pre-commit-config.yaml"],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver",
+      "matchStrings": [
+        "github\\.com/(?<depName>[^/]+/[^\\s/]+)(?:/[^@]+)?@(?<currentDigest>[0-9a-f]{40}) # frozen: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ]
     }
   ]
 }
