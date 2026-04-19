@@ -7,10 +7,11 @@
   },
   "customManagers": [
     {
-      "customType": "regex",
+      "customType": "jsonata",
+      "fileFormat": "yaml",
       "managerFilePatterns": ["pre-commit/action.yml"],
       "matchStrings": [
-        "PREK_VERSION: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+        "$[0].runs.steps[env.PREK_VERSION].{\"currentValue\": env.PREK_VERSION}"
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "j178/prek"
@@ -18,11 +19,11 @@
     {
       "customType": "regex",
       "managerFilePatterns": [".pre-commit-config.yaml"],
-      "datasourceTemplate": "github-tags",
-      "versioningTemplate": "semver",
       "matchStrings": [
         "github\\.com/(?<depName>[^/]+/[^\\s/]+)(?:/[^@]+)?@(?<currentDigest>[0-9a-f]{40}) # frozen: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
-      ]
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver"
     }
   ]
 }
