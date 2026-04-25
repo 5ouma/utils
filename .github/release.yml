@@ -1,4 +1,8 @@
 changelog:
+  exclude:
+    labels:
+      - 🕰️ Past Dependencies
+
   categories:
     - title: 🐙 GitHub Actions
       labels: [🐙 GitHub Actions]
