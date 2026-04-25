@@ -16,7 +16,6 @@ runs:
       with:
         script: |
           const { author, branch, label } = process.env;
-          const branchPrefix = branch.replace(/\d+\.x$/, "");
 
           const { data } = await github.rest.pulls.list({
             owner: context.repo.owner,
@@ -28,7 +27,7 @@ runs:
           return data.filter((pr) =>
             pr.number !== context.issue.number &&
             pr.user?.login === author &&
-            pr.head.ref.startsWith(branchPrefix) &&
+            pr.head.ref === branch &&
             pr.merged_at &&
             !pr.labels.some((existingLabel) => existingLabel.name === label)
           );
