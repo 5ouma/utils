@@ -1,7 +1,13 @@
 changelog:
+  exclude:
+    labels:
+      - 🕰️ Past Dependencies
+
   categories:
     - title: 🐙 GitHub Actions
       labels: [🐙 GitHub Actions]
+    - title: 🏷️ Label Past Pull Requests
+      labels: [🏷️ Label Past Pull Requests]
     - title: 🚸 pre-commit
       labels: [🚸 pre-commit]
     - title: 🍞 Setup Bun with Cache

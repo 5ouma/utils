@@ -1,0 +1,58 @@
+name: 🏷️ Label Past Pull Requests
+description: Add a label to merged dependency update Pull Requests
+
+inputs:
+  label:
+    description: Label to add to past Pull Requests
+    required: true
+
+runs:
+  using: composite
+
+  steps:
+    - name: 🔍 Find past Pull Requests
+      id: find-pr
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+      with:
+        script: |
+          const { author, branch, label } = process.env;
+          const branchPrefix = branch.replace(/\d+\.x$/, "");
+
+          const { data } = await github.rest.pulls.list({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: "closed",
+            sort: "updated",
+          });
+
+          return data.filter((pr) =>
+            pr.number !== context.issue.number &&
+            pr.user?.login === author &&
+            pr.head.ref.startsWith(branchPrefix) &&
+            pr.merged_at &&
+            !pr.labels.some((existingLabel) => existingLabel.name === label)
+          );
+      env:
+        author: ${{ github.event.pull_request.user.login }}
+        branch: ${{ github.head_ref }}
+        label: ${{ inputs.label }}
+
+    - name: 🏷️ Add label to past Pull Requests
+      if: ${{ steps.find-pr.outputs.result != '[]' }}
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+      with:
+        script: |
+          const { label } = process.env;
+          const prs = JSON.parse(process.env.prs ?? "[]");
+
+          for (const pr of prs) {
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              labels: [label],
+            });
+          }
+      env:
+        label: ${{ inputs.label }}
+        prs: ${{ steps.find-pr.outputs.result }}
