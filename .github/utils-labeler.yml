@@ -11,6 +11,11 @@ labels:
     matcher:
       commits: ^feat(\([\w-]+\))?!?:\s.+
 
+  - label: 🏷️ Label Past Pull Requests
+    sync: true
+    matcher:
+      files: label-past-pr/**
+
   - label: 🚸 pre-commit
     sync: true
     matcher:

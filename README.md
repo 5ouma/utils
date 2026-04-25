@@ -18,6 +18,25 @@
 
 ## 🐙 GitHub Composite Actions
 
+### 🏷️ Label Past Pull Requests
+
+```yml
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  job:
+    permissions:
+      pull-requests: write
+    if: ${{ github.event.pull_request.user.login == 'renovate[bot]' && github.event.pull_request.merged }}
+    runs-on: Ubuntu-Slim
+    steps:
+      - uses: 5ouma/utils/label-past-pr@v0.9.5
+        with:
+          label: past-pr
+```
+
 ### 🚸 pre-commit
 
 ```yml
