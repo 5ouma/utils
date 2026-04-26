@@ -2,6 +2,9 @@ name: 🏷️ Label Past Pull Requests
 description: Add a label to merged dependency update Pull Requests
 
 inputs:
+  branch:
+    description: Branch prefix to match
+    required: false
   label:
     description: Label to add to past Pull Requests
     required: true
@@ -28,13 +31,13 @@ runs:
           return data.filter((pr) =>
             pr.number !== context.issue.number &&
             pr.user?.login === author &&
-            pr.head.ref === branch &&
+            pr.head.ref.startsWith(branch) &&
             pr.merged_at &&
             !pr.labels.some((existingLabel) => existingLabel.name === label)
           ).map((pr) => pr.number);
       env:
         author: ${{ github.event.pull_request.user.login }}
-        branch: ${{ github.head_ref }}
+        branch: ${{ inputs.branch || github.head_ref }}
         label: ${{ inputs.label }}
 
     - name: 🏷️ Add label to past Pull Requests

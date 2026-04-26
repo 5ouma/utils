@@ -34,6 +34,7 @@ jobs:
     steps:
       - uses: 5ouma/utils/label-past-pr@v0.10.1
         with:
+          branch: renovate/ # Optional
           label: past-pr
 ```
 
