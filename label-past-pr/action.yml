@@ -22,6 +22,7 @@ runs:
             repo: context.repo.repo,
             state: "closed",
             sort: "updated",
+            direction: "desc",
           });
 
           return data.filter((pr) =>
