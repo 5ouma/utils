@@ -12,8 +12,6 @@ changelog:
       labels: [🚸 pre-commit]
     - title: 🍞 Setup Bun with Cache
       labels: [🍞 Setup Bun with Cache]
-    - title: 🔒 Update Deno Lock File
-      labels: [🔒 Update Deno Lock File]
     - title: 🏷️ Labeler
       labels: [🏷️ Labeler]
     - title: 🎨 Renovate

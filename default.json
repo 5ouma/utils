@@ -3,8 +3,7 @@
   "extends": [
     "config:best-practices",
     ":pinDependencies",
-    "helpers:pinGitHubActionDigestsToSemver",
-    "github>Omochice/renovate-config:deno#v4.1.1"
+    "helpers:pinGitHubActionDigestsToSemver"
   ],
   "dependencyDashboard": false,
   "minimumReleaseAge": "2 days",

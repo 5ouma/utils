@@ -64,22 +64,6 @@ jobs:
       - uses: 5ouma/utils/setup-bun-with-cache@v0.10.2
 ```
 
-### 🔒 Update Deno Lock File
-
-```yml
-jobs:
-  job:
-    runs-on: Ubuntu-Slim
-    steps:
-      - uses: 5ouma/utils/update-deno-lock-file@v0.10.2
-```
-
-> [!IMPORTANT]
-> You need to:
->
-> 1. install [autofix.ci](https://autofix.ci) to commit the changes.
-> 2. name workflows `autofix.ci`
-
 ## 🏷️ Labeler
 
 ```yml
