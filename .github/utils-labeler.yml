@@ -26,11 +26,6 @@ labels:
     matcher:
       files: setup-bun-with-cache/**
 
-  - label: 🔒 Update Deno Lock File
-    sync: true
-    matcher:
-      files: update-deno-lock-file/**
-
   - label: 🐙 GitHub Actions
     sync: true
     matcher:
