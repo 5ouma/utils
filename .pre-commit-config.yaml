@@ -82,7 +82,7 @@ repos:
         language: bun
         language_version: default
         files: (^|/).?(renovate(?:rc)?|default|labels)(?:\.json5?)?$
-        args: [--strict]
+        args: [--strict, --no-global]
 
   - repo: https://github.com/rvben/rumdl-pre-commit
     rev: 5db5f54bd3645bf9fecd8a56c052b9208b2d478d # frozen: v0.1.87
