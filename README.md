@@ -32,7 +32,7 @@ jobs:
     if: ${{ github.event.pull_request.user.login == 'renovate[bot]' && github.event.pull_request.merged }}
     runs-on: Ubuntu-Slim
     steps:
-      - uses: 5ouma/utils/label-past-pr@v0.11.2
+      - uses: 5ouma/utils/label-past-pr@v1.0.0
         with:
           branch: renovate/ # Optional
           label: past-pr
@@ -45,7 +45,7 @@ jobs:
   job:
     runs-on: Ubuntu-Slim
     steps:
-      - uses: 5ouma/utils/pre-commit@v0.11.2
+      - uses: 5ouma/utils/pre-commit@v1.0.0
         with:
           config: /path/to/pre-commit-config.yml # Optional
           token: ${{ secrets.GITHUB_TOKEN }} # Optional
@@ -61,7 +61,7 @@ jobs:
   job:
     runs-on: Ubuntu-Latest
     steps:
-      - uses: 5ouma/utils/setup-bun-with-cache@v0.11.2
+      - uses: 5ouma/utils/setup-bun-with-cache@v1.0.0
 ```
 
 ## 🏷️ Labeler
@@ -88,7 +88,7 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/5ouma/utils
-    rev: v0.11.2
+    rev: v1.0.0
     hooks:
       - id: upload-git-commit-notion
 ```
@@ -102,6 +102,6 @@ repos:
 
 ```json
 {
-  "extends": ["github>5ouma/utils#v0.11.2", "github>5ouma/utils:labels#v0.11.2"]
+  "extends": ["github>5ouma/utils#v1.0.0", "github>5ouma/utils:labels#v1.0.0"]
 }
 ```
