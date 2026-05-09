@@ -5,6 +5,9 @@
   "renovate-config-presets": {
     "managerFilePatterns": ["/(^|/).?(renovate(?:rc)?|default)(?:\\.json5?)?$/"]
   },
+  "packageRules": [
+    { "matchUpdateTypes": ["lockFileMaintenance"], "addLabels": ["🧠 Meta"] }
+  ],
   "customManagers": [
     {
       "customType": "jsonata",
