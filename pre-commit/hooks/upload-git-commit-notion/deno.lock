@@ -1,0 +1,124 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@roka/git@0.4.0": "0.4.0",
+    "jsr:@roka/maybe@0.1": "0.1.0",
+    "jsr:@std/assert@^1.0.19": "1.0.19",
+    "jsr:@std/collections@^1.1.6": "1.1.7",
+    "jsr:@std/internal@^1.0.12": "1.0.13",
+    "jsr:@std/path@^1.1.4": "1.1.4",
+    "jsr:@std/semver@^1.0.8": "1.0.8",
+    "npm:@1password/op-js@0.1.13": "0.1.13",
+    "npm:@notionhq/client@5.20.0": "5.20.0",
+    "npm:git-url-parse@16.1.0": "16.1.0"
+  },
+  "jsr": {
+    "@roka/git@0.4.0": {
+      "integrity": "c4883f613dc0ec3410c1db7260f5f212c91acef2fe2a923dd629c5e2c1f9a35e",
+      "dependencies": [
+        "jsr:@roka/maybe",
+        "jsr:@std/assert",
+        "jsr:@std/collections",
+        "jsr:@std/path",
+        "jsr:@std/semver"
+      ]
+    },
+    "@roka/maybe@0.1.0": {
+      "integrity": "115238934c82411cab34042dc8549e53fa96b3206fb962b6cadf2f2b90cdef90",
+      "dependencies": [
+        "jsr:@std/assert"
+      ]
+    },
+    "@std/assert@1.0.19": {
+      "integrity": "eaada96ee120cb980bc47e040f82814d786fe8162ecc53c91d8df60b8755991e",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/collections@1.1.7": {
+      "integrity": "56f659d011218a69740b12829cf5ea2c9b70bbed0af02597e27dc1eb5e69e208"
+    },
+    "@std/internal@1.0.13": {
+      "integrity": "2f9546691d4ac2d32859c82dff284aaeac980ddeca38430d07941e7e288725c0"
+    },
+    "@std/path@1.1.4": {
+      "integrity": "1d2d43f39efb1b42f0b1882a25486647cb851481862dc7313390b2bb044314b5",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/semver@1.0.8": {
+      "integrity": "dc830e8b8b6a380c895d53fbfd1258dc253704ca57bbe1629ac65fd7830179b7"
+    }
+  },
+  "npm": {
+    "@1password/op-js@0.1.13": {
+      "integrity": "sha512-ZZBLxVqywFdvIbLv2xWw2N1ImSi183rRKf90vV19KRMReNyLwuD0dv6IrKrIdrJU33IuV3Gz85Z4K2a1PJTBDg==",
+      "dependencies": [
+        "lookpath",
+        "semver"
+      ]
+    },
+    "@notionhq/client@5.20.0": {
+      "integrity": "sha512-MS0DFSfHPLZ0wi+e9mOP16gCCYbWAkaiMuu/rVK9KxDlKac4oAgHReOfTglcd77g/nlg78snp+KB7fNWP75bEw=="
+    },
+    "@types/parse-path@7.1.0": {
+      "integrity": "sha512-EULJ8LApcVEPbrfND0cRQqutIOdiIgJ1Mgrhpy755r14xMohPTEpkV/k28SJvuOs9bHRFW8x+KeDAEPiGQPB9Q==",
+      "dependencies": [
+        "parse-path"
+      ],
+      "deprecated": true
+    },
+    "git-up@8.1.1": {
+      "integrity": "sha512-FDenSF3fVqBYSaJoYy1KSc2wosx0gCvKP+c+PRBht7cAaiCeQlBtfBDX9vgnNOHmdePlSFITVcn4pFfcgNvx3g==",
+      "dependencies": [
+        "is-ssh",
+        "parse-url"
+      ]
+    },
+    "git-url-parse@16.1.0": {
+      "integrity": "sha512-cPLz4HuK86wClEW7iDdeAKcCVlWXmrLpb2L+G9goW0Z1dtpNS6BXXSOckUTlJT/LDQViE1QZKstNORzHsLnobw==",
+      "dependencies": [
+        "git-up"
+      ]
+    },
+    "is-ssh@1.4.1": {
+      "integrity": "sha512-JNeu1wQsHjyHgn9NcWTaXq6zWSR6hqE0++zhfZlkFBbScNkyvxCdeV8sRkSBaeLKxmbpR21brail63ACNxJ0Tg==",
+      "dependencies": [
+        "protocols"
+      ]
+    },
+    "lookpath@1.2.3": {
+      "integrity": "sha512-kthRVhf4kH4+HW3anM4UBHxsw/XFESf13euCEldhXr6GpBdmBoa7rDd7WO5G0Mhd4G5XtKTcEy8OR0iRZXpS3Q==",
+      "bin": true
+    },
+    "parse-path@7.1.0": {
+      "integrity": "sha512-EuCycjZtfPcjWk7KTksnJ5xPMvWGA/6i4zrLYhRG0hGvC3GPU/jGUj3Cy+ZR0v30duV3e23R95T1lE2+lsndSw==",
+      "dependencies": [
+        "protocols"
+      ]
+    },
+    "parse-url@9.2.0": {
+      "integrity": "sha512-bCgsFI+GeGWPAvAiUv63ZorMeif3/U0zaXABGJbOWt5OH2KCaPHF6S+0ok4aqM9RuIPGyZdx9tR9l13PsW4AYQ==",
+      "dependencies": [
+        "@types/parse-path",
+        "parse-path"
+      ]
+    },
+    "protocols@2.0.2": {
+      "integrity": "sha512-hHVTzba3wboROl0/aWRRG9dMytgH6ow//STBZh43l/wQgmMhYhOFi0EHWAPtoCz9IAUymsyP0TSBHkhgMEGNnQ=="
+    },
+    "semver@7.7.4": {
+      "integrity": "sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==",
+      "bin": true
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@roka/git@0.4.0",
+      "npm:@1password/op-js@0.1.13",
+      "npm:@notionhq/client@5.20.0",
+      "npm:git-url-parse@16.1.0"
+    ]
+  }
+}

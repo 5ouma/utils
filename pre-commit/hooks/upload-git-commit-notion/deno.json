@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "default": { "net": ["api.notion.com"], "env": true, "run": ["git", "op"] }
+  },
+  "imports": {
+    "@roka/git": "jsr:@roka/git@0.4.0",
+    "git-url-parse": "npm:git-url-parse@16.1.0",
+    "@1password/op-js": "npm:@1password/op-js@0.1.13",
+    "@notionhq/client": "npm:@notionhq/client@5.20.0"
+  }
+}

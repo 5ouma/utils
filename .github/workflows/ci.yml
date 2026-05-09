@@ -1,0 +1,148 @@
+name: 🎽 CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - pre-commit/hooks/**/*
+      - .github/workflows/ci.yml
+  pull_request:
+    paths:
+      - pre-commit/hooks/**/*
+      - .github/workflows/ci.yml
+
+permissions: {}
+
+jobs:
+  detect:
+    name: 🔄 Detect Deno Projects
+    runs-on: Ubuntu-Slim
+    timeout-minutes: 1
+    outputs:
+      projects: ${{ steps.get-directories.outputs.result }}
+
+    steps:
+      - name: 🚚 Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: 🔄 Filter changed files
+        id: filter
+        uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+        with:
+          filters: |
+            hook:
+              - added|modified: ["pre-commit/hooks/**/*"]
+            ci: [".github/workflows/ci.yml"]
+          list-files: json
+
+      - name: 📁 Get directories
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        id: get-directories
+        with:
+          script: |
+            const path = require("path");
+
+            if (JSON.parse(process.env.ci)) {
+              const globber = await glob.create("pre-commit/hooks/*/deno.json");
+              const files = await globber.glob();
+              return files.map(file => path.relative(process.env.GITHUB_WORKSPACE, path.dirname(file)));
+            }
+
+            const files = JSON.parse(process.env.files);
+            const dirs = files.map(file => file.match(/^(pre-commit\/hooks\/[^/]+)/)[1]);
+            return Array.from(new Set(dirs));
+        env:
+          files: ${{ steps.filter.outputs.hook_files }}
+          ci: ${{ steps.filter.outputs.ci }}
+
+  lint-check:
+    name: 🧹 Lint Check
+    needs: detect
+    runs-on: Ubuntu-Slim
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    timeout-minutes: 1
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.detect.outputs.projects) }}
+
+    steps:
+      - name: 🚚 Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: 🦕 Set up Deno
+        id: setup-deno
+        uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
+        with:
+          cache: true
+
+      - name: 📦 Install dependencies
+        if: ${{ steps.setup-deno.outputs.cache-hit != 'true' }}
+        run: deno install --frozen
+
+      - name: 🧹 Lint check
+        run: deno lint
+
+  format-check:
+    name: 📝 Format Check
+    needs: detect
+    runs-on: Ubuntu-Slim
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.detect.outputs.projects) }}
+    timeout-minutes: 1
+
+    steps:
+      - name: 🚚 Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: 🦕 Set up Deno
+        uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
+
+      - name: 📝 Format check
+        run: deno fmt --check
+
+  type-check:
+    name: 🔍 Type Check
+    needs: detect
+    runs-on: Ubuntu-Slim
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.detect.outputs.projects) }}
+    timeout-minutes: 1
+
+    steps:
+      - name: 🚚 Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: 🦕 Set up Deno
+        id: setup-deno
+        uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
+        with:
+          cache: true
+
+      - name: 📦 Install dependencies
+        if: ${{ steps.setup-deno.outputs.cache-hit != 'true' }}
+        run: deno install --frozen
+
+      - name: 🔍 Type check
+        run: deno check --doc
