@@ -93,6 +93,9 @@ repos:
       - id: upload-git-commit-notion
 ```
 
+> [!IMPORTANT]
+> You need [prek](https://prek.j178.dev) to run the hooks.
+
 <br />
 
 ## 🎨 Renovate
