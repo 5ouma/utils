@@ -1,9 +1,9 @@
-#!/usr/bin/env -S deno run -P
+#!/usr/bin/env -S deno run -EN='api.notion.com' --allow-run='git,op'
 
-import { git } from "@roka/git";
-import gitUrlParse from "git-url-parse";
-import { item } from "@1password/op-js";
-import { Client } from "@notionhq/client";
+import { git } from "jsr:@roka/git@0.4.0";
+import gitUrlParse from "npm:git-url-parse@16.1.0";
+import { item } from "npm:@1password/op-js@0.1.13";
+import { Client } from "npm:@notionhq/client@5.21.0";
 
 const range = {
   from: Deno.env.get("PRE_COMMIT_FROM_REF"),
