@@ -1,10 +1,13 @@
 name: 🛡️ Merge Gatekeeper
 
 on:
-  check_suite:
-    types: [completed]
+  pull_request:
 
 permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   merge-gatekeeper:
@@ -13,7 +16,6 @@ jobs:
       checks: read
       statuses: read
     runs-on: Ubuntu-Latest
-    if: ${{ toJSON(github.event.check_suite.pull_requests) != '[]' }}
     timeout-minutes: 10
 
     steps:
