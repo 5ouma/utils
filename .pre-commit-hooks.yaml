@@ -1,8 +1,10 @@
 - id: upload-git-commit-notion
   name: Upload Git Commits to Notion
   description: Upload not pushed Git commits data to Notion database
-  entry: pre-commit/hooks/upload-git-commit-notion/main.ts
+  entry: upload-git-commit-notion
   language: deno
+  additional_dependencies:
+    - ./pre-commit/hooks/upload-git-commit-notion.ts:upload-git-commit-notion
   always_run: true
   verbose: true
   pass_filenames: false

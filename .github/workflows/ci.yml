@@ -5,22 +5,23 @@ on:
     branches:
       - main
     paths:
-      - pre-commit/hooks/**/*
+      - pre-commit/hooks/*
       - .github/workflows/ci.yml
   pull_request:
     paths:
-      - pre-commit/hooks/**/*
+      - pre-commit/hooks/*
       - .github/workflows/ci.yml
 
 permissions: {}
 
 jobs:
   detect:
-    name: 🔄 Detect Deno Projects
+    name: 🔄 Detect Changed Projects
     runs-on: Ubuntu-Slim
     timeout-minutes: 1
     outputs:
-      projects: ${{ steps.get-directories.outputs.result }}
+      hooks: ${{ steps.filter.outputs.hooks }}
+      ci: ${{ steps.filter.outputs.ci }}
 
     steps:
       - name: 🚚 Check out repository
@@ -33,43 +34,19 @@ jobs:
         uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
         with:
           filters: |
-            hook:
-              - added|modified: ["pre-commit/hooks/**/*"]
+            hooks:
+              - added|modified: ["pre-commit/hooks/*"]
             ci: [".github/workflows/ci.yml"]
-          list-files: json
-
-      - name: 📁 Get directories
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        id: get-directories
-        with:
-          script: |
-            const path = require("path");
-
-            if (JSON.parse(process.env.ci)) {
-              const globber = await glob.create("pre-commit/hooks/*/deno.json");
-              const files = await globber.glob();
-              return files.map(file => path.relative(process.env.GITHUB_WORKSPACE, path.dirname(file)));
-            }
-
-            const files = JSON.parse(process.env.files);
-            const dirs = files.map(file => file.match(/^(pre-commit\/hooks\/[^/]+)/)[1]);
-            return Array.from(new Set(dirs));
-        env:
-          files: ${{ steps.filter.outputs.hook_files }}
-          ci: ${{ steps.filter.outputs.ci }}
 
   lint-check:
     name: 🧹 Lint Check
     needs: detect
+    if: ${{ needs.detect.outputs.hooks || needs.detect.outputs.ci }}
     runs-on: Ubuntu-Slim
     defaults:
       run:
-        working-directory: ${{ matrix.project }}
+        working-directory: pre-commit/hooks
     timeout-minutes: 1
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJson(needs.detect.outputs.projects) }}
 
     steps:
       - name: 🚚 Check out repository
@@ -93,14 +70,11 @@ jobs:
   format-check:
     name: 📝 Format Check
     needs: detect
+    if: ${{ needs.detect.outputs.hooks || needs.detect.outputs.ci }}
     runs-on: Ubuntu-Slim
     defaults:
       run:
-        working-directory: ${{ matrix.project }}
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJson(needs.detect.outputs.projects) }}
+        working-directory: pre-commit/hooks
     timeout-minutes: 1
 
     steps:
@@ -118,14 +92,11 @@ jobs:
   type-check:
     name: 🔍 Type Check
     needs: detect
+    if: ${{ needs.detect.outputs.hooks || needs.detect.outputs.ci }}
     runs-on: Ubuntu-Slim
     defaults:
       run:
-        working-directory: ${{ matrix.project }}
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJson(needs.detect.outputs.projects) }}
+        working-directory: pre-commit/hooks
     timeout-minutes: 1
 
     steps:
