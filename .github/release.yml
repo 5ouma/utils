@@ -1,7 +1,6 @@
 changelog:
   exclude:
     labels:
-      - 🧠 Meta
       - 🕰️ Past Dependencies
 
   categories:
