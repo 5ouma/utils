@@ -85,7 +85,7 @@ repos:
         args: [--strict, --no-global]
 
   - repo: https://github.com/rvben/rumdl-pre-commit
-    rev: 849c00e5481a3bb5fa0e1a5a43f4c3f823a8a80e # frozen: v0.1.92
+    rev: e7804d8a910856d577b11f40637277062fe3ac71 # frozen: v0.1.94
     hooks:
       - id: rumdl
         args: [--fail-on, warning, --disable, "MD013,MD024,MD033,MD036"]
