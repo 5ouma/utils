@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>5ouma/utils", "github>Omochice/renovate-config:deno"],
   "pre-commit": { "enabled": true },
-  "renovate-config-presets": {
+  "renovate-config": {
     "managerFilePatterns": ["/(^|/).?(renovate(?:rc)?|default)(?:\\.json5?)?$/"]
   },
   "customManagers": [
