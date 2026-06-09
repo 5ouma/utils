@@ -35,6 +35,8 @@ jobs:
 
       - name: 🔐 Set up Credential Helper
         run: gh auth setup-git
+        env:
+          GH_HOST: github.com
 
       - name: 🔖 Release a new version
         id: tagpr
