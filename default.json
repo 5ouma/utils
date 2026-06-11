@@ -6,7 +6,7 @@
     "helpers:pinGitHubActionDigestsToSemver"
   ],
   "dependencyDashboard": false,
-  "minimumReleaseAge": "2 days",
+  "minimumReleaseAge": "5 days",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
   "reviewers": ["5ouma"],
   "packageRules": [
