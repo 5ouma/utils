@@ -46,7 +46,7 @@ runs:
       with:
         script: |
           const { label } = process.env;
-          const prs = JSON.parse(process.env.prs ?? "[]");
+          const prs = JSON.parse(process.env.prs);
 
           for (const pr of prs) {
             await github.rest.issues.addLabels({
