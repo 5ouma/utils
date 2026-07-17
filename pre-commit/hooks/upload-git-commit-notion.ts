@@ -3,7 +3,7 @@
 import { git } from "jsr:@roka/git@0.4.0";
 import gitUrlParse from "npm:git-url-parse@16.1.0";
 import { item } from "npm:@1password/op-js@0.1.13";
-import { Client } from "npm:@notionhq/client@5.23.0";
+import { Client } from "npm:@notionhq/client@5.23.1";
 
 const range = {
   from: Deno.env.get("PRE_COMMIT_FROM_REF"),
