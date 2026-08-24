@@ -23,7 +23,7 @@ repos:
       - id: typos
 
   - repo: https://github.com/betterleaks/betterleaks
-    rev: c8a37504060dcd9ae51fb477219d8341f0e2669d # frozen: v1.8.0
+    rev: 5eab48332cc48565864514e3bc6de89df091a7c4 # frozen: v1.8.1
     hooks:
       - id: betterleaks
 
