@@ -22,5 +22,6 @@ runs:
 
     - name: 📦 Install dependencies
       if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+      # jactionlint ignore=unlocked-install
       run: bun install --frozen-lockfile
       shell: bash
