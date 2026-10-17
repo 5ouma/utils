@@ -8,9 +8,19 @@ on:
 
 permissions: {}
 
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release:
     name: 🚀 Release
+    permissions:
+      contents: read
     runs-on: Ubuntu-Slim
     environment:
       name: Release
