@@ -14,7 +14,7 @@ concurrency:
 jobs:
   update:
     name: ⬆️ Update OPML in Gist
-    runs-on: Ubuntu-Slim
+    runs-on: ubuntu-slim
     environment:
       name: Gist-Update
       deployment: false

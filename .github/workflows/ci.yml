@@ -27,7 +27,7 @@ jobs:
     name: 🔄 Detect Changed Projects
     permissions:
       contents: read
-    runs-on: Ubuntu-Slim
+    runs-on: ubuntu-slim
     timeout-minutes: 1
     outputs:
       hooks: ${{ steps.filter.outputs.hooks }}
