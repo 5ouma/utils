@@ -9,5 +9,6 @@
   "dependencyDashboard": false,
   "minimumReleaseAge": "5 days",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
+  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
   "reviewers": ["5ouma"]
 }
