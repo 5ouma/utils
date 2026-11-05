@@ -73,7 +73,7 @@ repos:
         files: ^(.+/)*action\.ya?ml$
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 0fd45e236488ed8ee1388b61ddcce9a17bb2ea31 # frozen: 44.198.0
+    rev: 37dd0f5ec9cb8c380e66f5fd9bd529b3b1f9416a # frozen: 44.198.3
     hooks:
       - id: renovate-config-validator
         language: bun
