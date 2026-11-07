@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: ⬆️ Update OPML in Gist
-        uses: 5ouma/opml-generator@25c45fe72197ae737bc6df2b401906cbb7083e72 # v1.1.2
+        uses: 5ouma/opml-generator@v1.1.2
         with:
           username: ${{ github.repository_owner }}
           feeds: ${{ secrets.FEEDS_GIST_ID }}
