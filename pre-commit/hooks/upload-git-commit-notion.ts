@@ -3,7 +3,7 @@
 import { git } from "jsr:@roka/git@0.4.0";
 import gitUrlParse from "npm:git-url-parse@16.1.0";
 import { item } from "npm:@1password/op-js@0.1.13";
-import { Client } from "npm:@notionhq/client@5.31.1";
+import Notion from "npm:@notionhq/client@5.31.1";
 
 const range = {
   from: Deno.env.get("PRE_COMMIT_FROM_REF"),
@@ -24,7 +24,7 @@ const [database_id, auth] = (() => {
   if (!Array.isArray(data)) throw new Error("Data is not an array");
   return data.map((field) => field.value);
 })();
-const client = new Client({ auth });
+const client = new Notion.Client({ auth });
 
 for (const commit of commits) {
   const res = await client.pages.create({
