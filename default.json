@@ -11,5 +11,8 @@
   "minimumReleaseAgeBehaviour": "timestamp-optional",
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
-  "reviewers": ["5ouma"]
+  "reviewers": ["5ouma"],
+  "packageRules": [
+    { "matchDatasources": ["golang-version"], "rangeStrategy": "bump" }
+  ]
 }
