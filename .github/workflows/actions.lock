@@ -10,13 +10,13 @@ workflows:
     '.github/workflows/gist-update.yml':
         - '5ouma/opml-generator@v1.1.2'
     '.github/workflows/label-past-pr.yml':
-        - '5ouma/utils@v0.13.0'
+        - '5ouma/utils@v0.13.1'
     '.github/workflows/labeler.yml':
         - 'fuxingloh/multi-labeler@v5.0.0'
     '.github/workflows/merge-gatekeeper.yml':
         - 'upsidr/merge-gatekeeper@v1.2.1'
     '.github/workflows/pre-commit.yml':
-        - '5ouma/utils@v0.13.0'
+        - '5ouma/utils@v0.13.1'
     '.github/workflows/release.yml':
         - 'actions/checkout@v7.0.1'
         - 'actions/create-github-app-token@v3.3.0'
@@ -29,9 +29,9 @@ dependencies:
         repo_id: 757310537
         uses:
             - 'denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282'
-    '5ouma/utils@v0.13.0':
-        ref: 'v0.13.0'
-        commit: 'sha1-54b168c10fa69b079dd1fa90a94258f07b9cdca2'
+    '5ouma/utils@v0.13.1':
+        ref: 'v0.13.1'
+        commit: 'sha1-b794f89a8b935dc20905edd7654b7fd39d20b119'
         owner_id: 101255979
         repo_id: 849736738
         uses:
