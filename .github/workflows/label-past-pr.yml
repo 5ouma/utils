@@ -14,7 +14,7 @@ jobs:
   label-past-pr:
     name: 🏷️ Label Past Pull Requests
     permissions:
-      pull-requests: write
+      pull-requests: write # required to add the label
     if: ${{ github.event.pull_request.user.login == 'renovate[bot]' && github.event.pull_request.merged }}
     runs-on: ubuntu-slim
     timeout-minutes: 1
