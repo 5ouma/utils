@@ -13,7 +13,7 @@ jobs:
   labeler:
     name: 🏷️ Labeler
     permissions:
-      pull-requests: write
+      pull-requests: write # required to apply labels
     runs-on: ubuntu-slim
     timeout-minutes: 1
 

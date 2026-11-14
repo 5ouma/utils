@@ -13,8 +13,8 @@ jobs:
   merge-gatekeeper:
     name: 🛡️ Merge Gatekeeper
     permissions:
-      checks: read
-      statuses: read
+      checks: read # required to inspect PR check results
+      statuses: read # required to read commit status checks
     runs-on: ubuntu-26.04
     timeout-minutes: 10
 
