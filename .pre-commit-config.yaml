@@ -35,8 +35,6 @@ repos:
           - --profile=pedantic
           - --online=strict
           - --fix
-          - --ignore=undocumented-permissions
-          - --ignore=unverified-download
 
   - repo: local
     hooks:
