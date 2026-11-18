@@ -6,7 +6,7 @@
     ":pinDependencies",
     "helpers:pinGitHubActionDigestsToSemver"
   ],
-  "dependencyDashboard": false,
+  "dependencyDashboard": { "enabled": false },
   "minimumReleaseAge": "5 days",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
   "osvVulnerabilityAlerts": true,
