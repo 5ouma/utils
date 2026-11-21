@@ -37,7 +37,7 @@ repos:
           - --fix
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 6f9f6fb27042eeb2c12163c94cf22289e9710eda # frozen: 44.239.1
+    rev: 360590e291c5bcb82a9cf8175fbeb18968951287 # frozen: 44.244.1
     hooks:
       - id: renovate-config-validator
         language: bun
