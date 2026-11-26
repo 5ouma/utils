@@ -26,6 +26,7 @@ runs:
             state: "closed",
             sort: "updated",
             direction: "desc",
+            per_page: 100,
           });
 
           return data.filter((pr) =>
