@@ -3,6 +3,9 @@
 # Docs: https://gh.io/actions-lockfile
 version: 'v0.0.3'
 workflows:
+    '.github/workflows/auto-merge-release.yml':
+        - 'actions/create-github-app-token@v3.4.0'
+        - 'actions/github-script@v9.0.0'
     '.github/workflows/ci.yml':
         - 'actions/checkout@v7.0.1'
         - 'denoland/setup-deno@v2.0.5'
@@ -62,6 +65,11 @@ dependencies:
         owner_id: 44036562
         repo_id: 642580244
     'actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3':
+        ref: 'v9.0.0'
+        commit: 'sha1-3a2844b7e9c422d3c10d287c895573f7108da1b3'
+        owner_id: 44036562
+        repo_id: 205262760
+    'actions/github-script@v9.0.0':
         ref: 'v9.0.0'
         commit: 'sha1-3a2844b7e9c422d3c10d287c895573f7108da1b3'
         owner_id: 44036562
